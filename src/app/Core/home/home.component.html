@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="banner">
+    <div class="text_content banner_typo">
+        <h6 class="text-white">
+            Premium stock photos & videos
+            shared by african contributors.
+        </h6>
+        <input type="text" name="" id="" placeholder="Search for premium photos and videos">
+        <div class="tags">
+            <span>Suggested : </span>
+            <small class="ml-2">
+                web design, oil, meeting, wildlife, petroleum, happy, rural, villages, children, more
+            </small>
+        </div>
+    </div>
+</div>
+<div class="image_tabs text-center">
+    <span [ngClass]="{'active_tab': active_tab == item}"
+    class="f-17 text-app-dark fw-800" 
+    *ngFor="let item of tabs" (click)="changeTab(item)">{{item | titlecase}}
+    </span>
+</div>
+<div class="masonry">
+    <div class="grid" *ngFor="let item of gallery">
+      <img [src]="item" >
+      <div class="grid__body cursor" (click)="open(item)">
+      </div>
+      <div class="bottom_panel mt-auto">
+        <div class="avatar cursor d-flex align-items-center" (click)="open(item)">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
+            <span class="ml-3 f-14 text-white">Mohammed Odutola</span>
+        </div>
+        <div class="icons d-flex">
+            <mat-icon >add_circle_outline</mat-icon>
+            <mat-icon >share</mat-icon>
+            <mat-icon >favorite_border</mat-icon>
+        </div>
+      </div>
+    </div>
+    
+  </div>

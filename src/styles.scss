@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;500&display=swap');
+*{
+  outline-width: 0 !important;
+  outline: none !important;
+  font-family: 'Mulish', sans-serif;
+  font-style: normal;
+  button,button:active,button:focus{
+    outline-width: 0 !important;
+    outline: none !important;
+  }
+}
+$colorScheme : (
+    primary:#F2994A,
+    teal: #03CFB4,
+    altTeal: #D3F5D3,
+    mag-green: #A7E66C,
+    tertiary: #F7B924,
+    danger: #ff0000,
+    altBlack: #1111,
+    alt: #fd976629,
+    text-black: #000000,
+    dark: #6D6D6D,
+);
+
+@function color($key) {
+    @return map-get($colorScheme, $key);
+}
+.bg-app-primary{
+    background: color(primary) !important;
+    color: #fff !important;
+}
+.bg-app-teal{
+  background: color(teal) !important;
+  color: #fff;
+}
+.bg-app-lightteal{
+    background: color(altTeal);
+}
+.bg-app-outlet{
+  background: color(outlet);
+  color: #fff;
+}
+.bg-app-black{
+  background: color(text-black) !important;
+  color: #fff;
+}
+.bg-app-altBlack{
+    background: color(altBlack) !important;
+}
+.bg-app-green{
+  background: color(mag-green) !important;
+  color: #fff;
+}
+.bg-app-danger{
+  background: color(danger) !important;
+  color: #fff;
+}
+.text-app-danger{
+  color: color(danger) !important;
+}
+.text-app-primary{
+    color: color(primary) !important;
+}
+.text-app-green{
+  color: color(mag-green) !important;
+}
+.text-app-light{
+    color: #fff !important;
+}
+.text-app-teal{
+    color:color(teal)
+}
+.text-app-lightteal{
+    color: color(altTeal);
+}
+.text-app-dark{
+  color: color(dark);
+}
+.text-app-green{
+  color: color(bg-green);
+}
+.text-app-black{
+  color: color(text-black);
+}
+.text-app-grey{
+  color: color(text-dark) !important;
+  letter-spacing: -0.500211px;
+}
+
+//CUSTOM TYPOGRAPHY
+.f-14{
+    font-size: 14px;
+}
+.f-17{
+    font-size: 17px;
+}
+.f-18{
+    font-size: 18px;
+}
+.f-21{
+    font-size: 21px;
+}
+.fw-800{
+    font-weight: 800;
+}
+.fw-600{
+    font-weight: 600;
+}
+
+.cursor{
+    cursor: pointer;
+}
+.flex_center{
+    display: flex;
+    align-items: center;
+}
+
+//MASONRY BRICK STYLE GALLERY
+.masonry {
+    columns: 3;
+    padding: .5rem 5%;
+    column-gap: 16px;
+    @media (max-width: 1200px) {
+      columns: 3;
+    }
+    @media (max-width: 992px) {
+      columns: 2;
+    }
+    //@media (max-width: 768px) {columns: 1;}
+    .grid {
+      display: inline-block;
+      margin-bottom: 16px;
+      position: relative;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    //   &:before {
+    //     border-radius: 5px;
+    //     content:'';
+    //     position:absolute;
+    //     top:0;
+    //     right:0;
+    //     bottom:0;
+    //     left:0;
+    //     background-color:rgba(0,0,0,.2);
+    //   }
+      &__title {
+        font-size: 28px;
+        font-weight:bold;
+        margin: 0px 0px 10px 0px;
+      }
+      &__author {
+        font-size: 14px;
+        font-weight:300;
+      }
+      &__link {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+      &__body {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 1rem;
+        color: #fff;
+        display: flex;
+        flex-direction: column
+      }
+      &__tag {
+        background-color:rgba(255,255,255,.8);
+        color: #333;
+        border-radius:5px;
+        padding: 5px 15px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  
+  //botoom buttons for image information, share/like/wishlist
+  .bottom_panel {
+    margin-top:auto;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    align-items: baseline;
+    bottom: -1rem;
+    left: .5rem;
+    right: .5rem;
+    height: 4rem;
+    @media (max-width: 599px) {
+        display: block;
+        bottom: 0;
+        height: 6rem;
+    }
+    .avatar{
+        @media (max-width: 599px) {
+            margin-bottom: .7rem;
+        }
+    }
+    img{
+        width: 20px !important;
+        height: 20px !important;
+        border-radius: 50% !important;
+        object-fit: cover;
+    }
+    mat-icon{
+        height: 450px;
+        width: 45px;
+        cursor: pointer;
+        color: #fff;
+    }
+  }
+  

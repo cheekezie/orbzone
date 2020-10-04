@@ -1,0 +1,44 @@
+.top, .title{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.avatar{
+    img{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+.buttons {
+    button{
+        padding: .7rem 4rem;
+        border-radius: 5px;
+    }
+}
+.title{
+    p{
+        color: #828282;
+    }
+}
+.image{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+// mat-dialog-container{
+//     background: rgba(0,0,0,.7) !important;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     bottom: 0;
+// }
+mat-dialog-content{
+
+    max-height: 90vh !important;
+}
