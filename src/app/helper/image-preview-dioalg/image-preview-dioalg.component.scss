@@ -16,6 +16,24 @@
         object-fit: cover;
     }
 }
+//DNS IP : 162.213.253.172
+.tags{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    .tag{
+        border: 1px solid #C4C4C4;
+        border-radius: 20PX;
+        box-sizing: border-box;
+        color: #C4C4C4;
+        font-family: 'Lato';
+        margin: 0 .5rem;
+        font-size: 14px;
+        padding: .2rem 1rem;
+    }
+}
+
 .buttons {
     button{
         padding: .7rem 4rem;
@@ -31,9 +49,12 @@
     width: 70%;
     position: relative;
     margin: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
-
+.image_data{
+    position: relative;
+    height: auto;
+}
 // mat-dialog-container{
 //     background: rgba(0,0,0,.7) !important;
 //     position: absolute;

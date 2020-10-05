@@ -1,3 +1,4 @@
+import { AddCollectionComponent } from './../../helper/add-collection/add-collection.component';
 import { ImagePreviewDioalgComponent } from './../../helper/image-preview-dioalg/image-preview-dioalg.component';
 import { UtilService } from 'src/app/Services/util.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -10,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  active_tab = "Home"
+  active_tab = "Home";
+  notification = false;
   tabs = [
     "Home",
     "Discover",
@@ -26,6 +28,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGallery();
+    setTimeout(() => {
+      this.notification = true;
+    }, 5000);
   }
   async getGallery(){
     let res:any = await this.imageService.getGallery();
@@ -42,5 +47,14 @@ export class HomeComponent implements OnInit {
     }
     dialogConfig.width = '100%';
     this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
+  }
+  addCollection(url: String): void {
+    const dialogConfig = this.util.dialogConfig();
+    dialogConfig.data = {
+      image: url,
+      author: {}
+    }
+    dialogConfig.width = '38rem';
+    this.matDialog.open(AddCollectionComponent, dialogConfig);  
   }
 }

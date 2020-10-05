@@ -1,0 +1,53 @@
+img{
+    width: 13rem;
+    height: auto;
+    position: relative;
+    border-radius: 7px;
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(0,0,0,.7) !important;
+    }
+}
+a{
+    text-decoration: none;
+    &:hover, &:active, &:focus{
+        color: #000;
+    }
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: #000;
+        height: 1px;
+    }
+    mat-icon{
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+    }
+}
+.btn_border{
+    color: #000;
+    background: #F9F9F9;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    padding: .3rem .5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+mat-dialog-content{
+    padding: 1rem 3rem;
+}

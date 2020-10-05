@@ -16,7 +16,7 @@ $colorScheme : (
     mag-green: #A7E66C,
     tertiary: #F7B924,
     danger: #ff0000,
-    altBlack: #1111,
+    altBlack: #111111,
     alt: #fd976629,
     text-black: #000000,
     dark: #6D6D6D,
@@ -76,6 +76,9 @@ $colorScheme : (
 .text-app-dark{
   color: color(dark);
 }
+.text-app-altBlack{
+  color: color(altBlack);
+}
 .text-app-green{
   color: color(bg-green);
 }
@@ -91,6 +94,9 @@ $colorScheme : (
 .f-14{
     font-size: 14px;
 }
+.f-16{
+  font-size: 16px;
+}
 .f-17{
     font-size: 17px;
 }
@@ -99,6 +105,12 @@ $colorScheme : (
 }
 .f-21{
     font-size: 21px;
+}
+.f-24{
+  font-size: 24px;
+}
+.f-48{
+    font-size: 48px;
 }
 .fw-800{
     font-weight: 800;
@@ -116,9 +128,14 @@ $colorScheme : (
 }
 
 //MASONRY BRICK STYLE GALLERY
+.intro_text{
+  padding: 0 5%;
+  margin-top: .7rem;
+}
 .masonry {
     columns: 3;
-    padding: .5rem 5%;
+    padding: .2rem 5%;
+    margin-bottom: 2rem;
     column-gap: 16px;
     @media (max-width: 1200px) {
       columns: 3;
@@ -217,4 +234,22 @@ $colorScheme : (
         color: #fff;
     }
   }
+
+  //CUSTOM SCROLLBAR FOR MATERIAL DIALOG
+  mat-dialog-content{
+    &::-webkit-scrollbar {
+      width: .7em;
+    }
+     
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background-color: color(primary);
+      border-radius: 30px;
+      outline: 1px solid color(primary);
+    }
+  }
+  
   

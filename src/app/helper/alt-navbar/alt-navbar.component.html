@@ -1,8 +1,11 @@
-<nav class="nav_bar flex_center" 
-[ngClass]="{'nav_black': navViewPort == true}">
-    <div class="logo_brand">
+<nav class="nav_bar flex_center nav_black" >
+    <div class="logo_brand flex_center">
         <img src="../../../assets/img/logo.png" alt="" 
         [routerLink]="['']" class="cursor">
+        <div class="search">
+            <input type="text" placeholder="Search for premium photos and videos">
+            <mat-icon>search</mat-icon>
+        </div>
     </div>
     <div class="links flex_center">
         <li [routerLink]="['explore']" routerLinkActive="router_active" >Explore</li>

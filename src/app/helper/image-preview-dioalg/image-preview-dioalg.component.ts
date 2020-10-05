@@ -9,6 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ImagePreviewDioalgComponent implements OnInit {
   gallery = [];
+  tags = [
+    "Asian", "Background", "Bowl", "Chinese", "Cuisine"
+  ]
   constructor(
     private dialogRef: MatDialogRef<ImagePreviewDioalgComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

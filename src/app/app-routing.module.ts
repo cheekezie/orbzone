@@ -1,3 +1,4 @@
+import { ExploreComponent } from './Core/explore/explore.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +10,12 @@ const routes: Routes = [
     path: "",
     component: HomeComponent,
     data: { title: "Home | Orbzone" },
+  },
+
+  {
+    path: 'explore', 
+    component: ExploreComponent, 
+    data: {title: 'Explore | Orbzone'}
   },
 
   {

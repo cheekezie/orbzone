@@ -1,3 +1,4 @@
+import { ApiService } from './../../Services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
-
-  constructor() { }
+  gallery = [];
+  constructor(
+    private imageService: ApiService
+  ) { }
 
   ngOnInit(): void {
+    this.getGallery();
+  }
+  async getGallery(){
+    let res:any = await this.imageService.getGallery();
+    this.gallery = res.sort(() => Math.random() - 0.5)
   }
 
 }
