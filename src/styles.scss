@@ -4,11 +4,14 @@
   outline: none !important;
   font-family: 'Mulish', sans-serif;
   font-style: normal;
-  button,button:active,button:focus{
+  button,button:active,button:focus,
+  .form-control:active,.form-control:focus,
+  input:active, input:focus{
     outline-width: 0 !important;
     outline: none !important;
   }
 }
+
 $colorScheme : (
     primary:#F2994A,
     teal: #03CFB4,
@@ -109,6 +112,12 @@ $colorScheme : (
 .f-24{
   font-size: 24px;
 }
+.f-32{
+  font-size: 32px;
+}
+.f-36{
+  font-size: 36px;
+}
 .f-48{
     font-size: 48px;
 }
@@ -127,6 +136,21 @@ $colorScheme : (
     align-items: center;
 }
 
+//LOGO
+.logo_brand img{
+  width: 7.3rem;
+}
+
+//GREY BUTTON STYLING
+.btn_grey{
+  color: #000;
+  background: #F9F9F9;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  padding: .3rem .5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
 //MASONRY BRICK STYLE GALLERY
 .intro_text{
   padding: 0 5%;

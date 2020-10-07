@@ -1,0 +1,31 @@
+.banner{
+    margin-top: 6.3rem;
+    padding: 2rem 5%;
+    p{
+        color: #828282;
+        &:last-child{
+            color: #333;
+            letter-spacing: -0.04em;
+        }
+    }
+    h6{
+        letter-spacing: -0.04em;
+        margin-bottom: 2rem;
+    }
+    
+}
+.filter_box{
+    display: flex;
+    mat-icon{
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: #172B4D;
+        margin-left: .5rem;
+        margin-top: .1rem;
+    }
+}
+.btn_grey{
+    background: #e0e0e0;
+    padding: .5rem .7rem;
+}

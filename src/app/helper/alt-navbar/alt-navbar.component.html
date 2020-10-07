@@ -2,17 +2,44 @@
     <div class="logo_brand flex_center">
         <img src="../../../assets/img/logo.png" alt="" 
         [routerLink]="['']" class="cursor">
-        <div class="search">
-            <input type="text" placeholder="Search for premium photos and videos">
+        <div class="search desktop_view" >
+            <input type="text" placeholder="Search for premium photos and videos"
+            [(ngModel)]="search_term" (keyup.enter)="search()">
             <mat-icon>search</mat-icon>
         </div>
     </div>
-    <div class="links flex_center">
+    <div class="links flex_center desktop_view">
         <li [routerLink]="['explore']" routerLinkActive="router_active" >Explore</li>
         <li>Contributors</li>
         <li>Upload</li>
         <li>
-            <button class="btn bg-app-primary">Join</button>
+            <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
         </li>
     </div>
+    <div class="menu_toggle menu_open" >
+        <mat-icon (click)="menu()" class="cursor ">menu</mat-icon>
+    </div>
 </nav>
+<div class="mobile_menu bg-app-light slide_menu" id="menu">
+    <div class="logo_brand flex_center">
+        <img src="../../../assets/img/logo.png" alt="" 
+        [routerLink]="['']" class="cursor">
+        <div class="search px-4 w-100">
+            <input type="text" placeholder="Search for premium photos and videos"
+            [(ngModel)]="search_term" (keyup.enter)="search()">
+            <mat-icon>search</mat-icon>
+        </div>
+        <div class="menu_open">
+            <mat-icon (click)="menu()" class="cursor">menu</mat-icon>
+        </div>
+        
+    </div>
+    <div class="mobile_links mt-5">
+        <li [routerLink]="['explore']" routerLinkActive="router_active" >Explore</li>
+        <li>Contributors</li>
+        <li>Upload</li>
+        <li>
+            <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
+        </li>
+    </div>
+</div>

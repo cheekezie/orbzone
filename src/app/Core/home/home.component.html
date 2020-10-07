@@ -5,12 +5,15 @@
             Premium stock photos & videos
             shared by african contributors.
         </h6>
-        <input type="text" name="" id="" placeholder="Search for premium photos and videos">
-        <div class="tags">
-            <span>Suggested : </span>
-            <small class="ml-2">
-                web design, oil, meeting, wildlife, petroleum, happy, rural, villages, children, more
-            </small>
+        <div class="search_area" *ngIf="show_search">
+            <input type="text" name="searchterm" id="" placeholder="Search for premium photos and videos"
+            (keyup.enter)="enter()" [(ngModel)]="search_term">
+            <div class="tags">
+                <span>Suggested : </span>
+                <small class="ml-2">
+                    web design, oil, meeting, wildlife, petroleum, happy, rural, villages, children, more
+                </small>
+            </div>
         </div>
     </div>
 </div>

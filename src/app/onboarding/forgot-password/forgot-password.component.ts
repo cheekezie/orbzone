@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
+})
+export class ForgotPasswordComponent implements OnInit {
+  sent = false;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  resend(){
+
+  }
+  send(){
+    this.sent = true;
+  }
+}

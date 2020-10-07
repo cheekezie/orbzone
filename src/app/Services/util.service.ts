@@ -81,4 +81,12 @@ export class UtilService {
     dialogConfig.closeOnNavigation = true;
     return dialogConfig
   }
+  searchRoute(path,query){
+    this.router.navigate([path], {
+      queryParams: {
+        tag : query
+      },
+      queryParamsHandling: 'merge',
+    });
+  }
 }

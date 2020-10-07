@@ -26,7 +26,7 @@ export class ImagePreviewDioalgComponent implements OnInit {
     this.gallery = res.slice(0,12).sort(() => Math.random() - 0.5)
   }
   open(item){
-    this.data = item;
+    this.data.image = item;
   }
 
 }

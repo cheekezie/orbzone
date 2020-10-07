@@ -12,10 +12,6 @@
     left: 0;
     top: 0;
     justify-content: space-between;
-    .logo_brand img{
-        width: 7.3rem;
-    }
-
     li{
         list-style: none;
         cursor: pointer;
@@ -35,3 +31,85 @@
     }
     
 }
+.search{
+    margin-left: 3rem;
+    position: relative;
+    input{
+        border: none;
+        background: #fff;
+        border-radius: 8px;
+        color: #656565;
+        font-size: 14px;
+        width: 25rem;
+        padding: .7rem 1rem;
+        &::placeholder{
+            color: #656565;
+        }
+    }
+    mat-icon{
+        position: absolute;
+        color: #172B4D;
+        right: .8rem;
+        top: .75rem;
+        font-size: 20px;
+    }
+}
+.slide_menu{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999999;
+    left: 0;
+    right: 0;
+    padding: 3rem 10%;
+    transform: translateX(-150%);
+    background: rgba(0, 0, 0, 0.96) !important;
+    transition: transform 0.5s ease-in-out;   
+     .search{
+        margin-left: 0;
+        mat-icon{
+            right: 2rem;
+            color: #172B4D;
+            cursor: pointer;
+        } 
+        input{
+            width: 100%;
+        }
+    }
+    .menu_open mat-icon{
+        color: #fff !important;
+    }
+    li{
+        list-style: none;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 2rem;
+    }
+    button{
+        padding: .5rem 3rem;
+    }
+}
+.motion_in{
+    transform: translateX(0);
+}
+.menu_toggle{
+    display: none;
+    mat-icon{
+        color: #fff !important;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .menu_toggle{
+        display: block !important;
+    }
+    .desktop_view{
+        display: none !important;
+    }
+    
+}
+@media screen and (max-width: 699px) {
+    .slide_menu{
+        padding: 3rem 5%;
+    }
+}
+

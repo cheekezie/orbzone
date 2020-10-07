@@ -1,0 +1,28 @@
+<div class="overlay">
+    <app-top-nav class="w-100"></app-top-nav>
+    <div class="content">
+        <h6 class="font-weight-bold f-32 text-app-black">Welcome Back</h6>
+        <form >
+            <div class="group">
+                <input type="text" class="form-control" placeholder="Email address">
+                <mat-icon>mail</mat-icon>
+            </div>
+            <div class="group">
+                <input type="text" class="form-control" placeholder="Password">
+                <mat-icon>https</mat-icon>
+            </div>
+            <button class="bg-app-black text-white btn">Login</button>
+            <div class="text-center">
+                <span class="forgot_link cursor" 
+                [routerLink]="['/account/forgot-password']">Forgot Password?
+                </span>
+            </div>
+        </form>
+    </div>
+    <footer class="text-center text-white f-14">
+        <span>Review our</span>
+        <span class="cursor ml-1">Terms</span> and 
+        <span class="cursor">Privacy Policy</span>
+    </footer>
+</div>
+<app-background></app-background>

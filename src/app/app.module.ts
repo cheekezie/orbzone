@@ -1,3 +1,4 @@
+import { SearchResultComponent } from './Core/search-result/search-result.component';
 import { HelperModule } from './helper/helper.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,8 @@ import { HomeComponent } from './Core/home/home.component';
 import { NotfoundComponent } from './Core/notfound/notfound.component';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
 import { MatIconModule } from '@angular/material/icon';
+import { SearchComponent } from './Core/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     ExploreComponent,
     NotfoundComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatDialogModule,
     MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
     AlertModule.forRoot({maxMessages: 1, timeout: 7000, positionX: 'right'}),
   ],
   providers: [

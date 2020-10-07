@@ -1,1 +1,42 @@
-<p>search-result works!</p>
+<app-alt-navbar></app-alt-navbar>
+<div class="banner row mx-0">
+    <div class="col-md-6 px-0">
+        <h6 class="f-48 text-app-altBlack fw-800">
+            Search Results
+        </h6>
+        <p class="f-16 fw-600">
+            Displaying 344 Mathches with the tag  "{{search_term}}"
+        </p>
+    </div>
+</div>
+
+<div class="intro_text d-flex justify-content-between">
+    <h6 class="f-16 fw-800 text-app-black f-18">Premium Stock Images</h6>
+    <div class="filter_box cursor">
+        <h6 class="f-16 fw-800 text-app-black f-18">Recent</h6>
+        <mat-icon>expand_more</mat-icon>
+    </div>
+</div>
+<div class="masonry">
+    <div class="grid" *ngFor="let item of gallery">
+      <img [src]="item" >
+      <div class="grid__body cursor" (click)="open(item)">
+      </div>
+      <!-- <div class="bottom_panel mt-auto">
+        <div class="avatar cursor d-flex align-items-center" (click)="open(item)">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
+            <span class="ml-3 f-14 text-white">Mohammed Odutola</span>
+        </div>
+        <div class="icons d-flex">
+            <mat-icon >share</mat-icon>
+            <mat-icon >add_circle_outline</mat-icon>
+            <mat-icon >favorite_border</mat-icon>
+        </div>
+      </div> -->
+      <div class="button_group mt-3 mb-1 d-flex flex-wrap">
+        <a class="btn_grey f-14 mb-2">Orbzone Global</a>
+        <a class="btn_grey f-14 ml-3 mb-2">Capture the Sunset in Humans</a>
+      </div>
+    </div>
+    
+  </div>

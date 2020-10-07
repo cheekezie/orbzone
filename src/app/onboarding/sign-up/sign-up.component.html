@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <div class="side_bg">
+        <div class="logo_brand">
+            <img src="../../../assets/img/logo.png" alt=""
+            [routerLink]="['']" class="logo cursor">
+        </div>
+        <div class="text">
+            <h6 class="text-white fw-800 f-36">
+                Premium African
+                <br> Stock Photos
+            </h6>
+            <p class="text-white">
+                Access hundreds of, high-resolution afro centric photos you can’t find anywhere else.
+            </p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="logo_brand mobile_view text-center">
+            <img src="../../../assets/img/logo.png" alt=""
+            [routerLink]="['']" class="logo cursor">
+        </div>
+        <div class="form_area">
+            <div class="top text-center">
+                <h6 class="font-weight-bold f-48 text-app-black">Join Orbzone</h6>
+                <p>
+                    Already have an account? 
+                    <span class="cursor" [routerLink]="['/account/login']">Login</span> 
+                </p>
+            </div>
+            
+            <form >
+                <div class="row">
+                    <div class="group col-md-6">
+                        <label for="firstname" class="fw-600 text-app-black">First Name</label>
+                        <input type="text" id="firstname" class="form-control" placeholder="">
+                    </div>
+                    <div class="group col-md-6">
+                        <label for="lastname" class="fw-600 text-app-black">Last Name</label>
+                        <input type="text" id="lastname" class="form-control" placeholder="">
+                    </div>
+                    <div class="group col-md-6">
+                        <label for="phone" class="fw-600 text-app-black">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" placeholder="">
+                    </div>
+                    <div class="group col-md-6">
+                        <label for="email" class="fw-600 text-app-black">Phone Number</label>
+                        <input type="email" class="form-control" id="email" placeholder="">
+                    </div>
+                    <div class="group col-md-6">
+                        <label for="pwd" class="fw-600 text-app-black">Password (min. 6 char)</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="">
+                    </div>
+                    <div class="group col-md-6">
+                        <label for="vpwd" class="fw-600 text-app-black">Confirm Password</label>
+                        <input type="password" class="form-control" id="vpwd" placeholder="">
+                    </div>
+                </div>
+                <button class="bg-app-black text-white btn w-100">Join</button>
+            </form>
+            <footer class="text-center f-14">
+                <span>By joining, you agree to the</span>
+                <span class="cursor ml-1">Terms</span> and 
+                <span class="cursor">Privacy Policy</span>
+            </footer>
+        </div>
+    </div>
+</div>
