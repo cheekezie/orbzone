@@ -126,6 +126,16 @@ $primary: #F2994A;
 }
 
 //MEDIA QUERRIES
+@media only screen and (max-width: 768px) {
+    .notification{
+        .panel{
+            width: 35rem;
+        }
+        .content{
+            padding: .5rem 1rem;
+        }
+    }
+}
 @media only screen and (max-width: 599px) {
     .banner{
         .text_content{
@@ -135,6 +145,14 @@ $primary: #F2994A;
     .image_tabs{
         span{
             margin: 0 .5rem;
+        }
+    }
+    .notification{
+        .panel{
+            width: 24rem;
+        }
+        .content{
+            padding: .5rem;
         }
     }
 }
