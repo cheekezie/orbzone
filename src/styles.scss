@@ -167,6 +167,9 @@ $colorScheme : (
     @media (max-width: 992px) {
       columns: 2;
     }
+    @media (max-width: 559px) {
+      columns: 1;
+    }
     //@media (max-width: 768px) {columns: 1;}
     .grid {
       display: inline-block;
