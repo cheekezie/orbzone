@@ -114,7 +114,7 @@ export class UtilService {
 
   snackbarConfig(title,msg,theme){
     this.snackBar.open(title, msg, {
-      duration: 7000,
+      duration: 70000,
       verticalPosition: 'top',
       //horizontalPosition: 'right',
       panelClass: [theme],

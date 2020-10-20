@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   login(data:Object){
-    let getUrl = this.baseUrl + 'sign-up'
+    let getUrl = this.baseUrl + 'sign-in'
     return this.http.post(getUrl, data)
     .pipe(retry(2),tap( )
     )

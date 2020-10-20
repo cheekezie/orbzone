@@ -11,6 +11,10 @@
     width: 49.5%;
     height: max-content;;
     padding: .9rem 1rem;
+    @media (max-width: 599px) {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
     a.btn{
         padding: .3rem 1.2rem;
         border-radius: 5px;
@@ -23,6 +27,9 @@
     display: flex;
     align-items: flex-end;
     padding: 1rem;
+    @media (max-width: 599px) {
+        display: none;
+    }
     p{
         color: #ddd;
         margin: 0 auto;

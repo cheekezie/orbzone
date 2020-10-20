@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   async login(){
-    this.loader = false;
+    this.loader = true;
     this.api.login(this.loginForm.value).subscribe((res:any)=>{
       this.util.succesSnackbar('Login successful');
       this.util.setUserObject(res.data);

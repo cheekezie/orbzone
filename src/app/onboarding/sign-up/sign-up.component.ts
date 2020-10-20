@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
   }
 
   async join(){
-    this.loader = false;
+    this.loader = true;
     let formData = new FormData();
     formData.append('surname', this.signupForm.value.surname);
     formData.append('firstname', this.signupForm.value.firstname);

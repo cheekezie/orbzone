@@ -333,7 +333,7 @@ $colorScheme : (
     width: 100% !important;
   }
   .error-snackbar,.success-snackbar,.warning-snackbar{
-    z-index: 9999999;
+    z-index: 99999999999999 !important;
   }
   .error-snackbar, .error-snackbar .mat-simple-snackbar-action{
     background-color: red;
@@ -400,12 +400,13 @@ $colorScheme : (
     left: .5rem;
     right: .5rem;
     height: 4rem;
-    @media (max-width: 599px) {
-        display: block;
-        bottom: 0;
-        height: 6rem;
-    }
+    // @media (max-width: 599px) {
+    //     display: block;
+    //     bottom: 0;
+    //     height: 6rem;
+    // }
     .avatar{
+      width: 60%;
         @media (max-width: 599px) {
             margin-bottom: .7rem;
         }

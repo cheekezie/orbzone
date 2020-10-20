@@ -3,11 +3,11 @@
     overflow: auto !important;
 }
 mat-dialog-content{
-    min-height: 70vh !important;
     padding: 0;
     margin-top: -2rem;
-    max-height: initial;
+    max-height: 90vh;
 }
+
 .top{
     padding: 1.5rem;
 }
@@ -96,5 +96,19 @@ hr{
         background: #fff;
         padding: .35rem .5rem;
         border-radius: 2px;
+    }
+}
+@media (max-width: 599px) {
+    .share_gorup{
+        .icons span{
+            width: 2rem;
+            height: 2rem;
+        }
+        .icons p{
+            font-size: 14px;
+        }
+        .icons span i{
+            font-size: 16px;
+        }
     }
 }
