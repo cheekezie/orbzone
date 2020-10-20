@@ -1,6 +1,6 @@
-import { ApiService } from './../../Services/api.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ApiService } from './../../Services/api.service';
 
 @Component({
   selector: 'app-image-preview-dioalg',
@@ -20,7 +20,6 @@ export class ImagePreviewDioalgComponent implements OnInit {
     private dialogRef: MatDialogRef<ImagePreviewDioalgComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private api: ApiService,
-    private imageService: ApiService
   ) { }
 
   ngOnInit(): void {

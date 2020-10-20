@@ -1,3 +1,4 @@
+import { ShareComponent } from './../../helper/share/share.component';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UtilService } from 'src/app/Services/util.service';
@@ -88,5 +89,12 @@ export class HomeComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.width = '38rem';
     this.matDialog.open(AddCollectionComponent, dialogConfig);  
+  }
+  share(data: Object): void {
+    const dialogConfig = this.util.dialogConfig();
+    dialogConfig.data = data;
+    dialogConfig.disableClose = false;
+    dialogConfig.width = '40rem';
+    this.matDialog.open(ShareComponent, dialogConfig);  
   }
 }

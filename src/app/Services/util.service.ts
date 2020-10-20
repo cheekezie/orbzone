@@ -35,7 +35,6 @@ export class UtilService {
     }
   }
   setToken(token){
-    localStorage.setItem('/key', token);
     this.cookieService.set('/key', token, 2, );
   }
 

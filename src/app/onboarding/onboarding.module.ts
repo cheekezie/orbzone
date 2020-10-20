@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
 import { BackgroundComponent } from './background/background.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -20,6 +21,8 @@ import { TopNavComponent } from './top-nav/top-nav.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     OnboardingRoutingModule
   ]

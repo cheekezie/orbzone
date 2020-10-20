@@ -176,7 +176,7 @@ $colorScheme : (
       margin-bottom: 16px;
       position: relative;
       min-height: 15rem;
-      width: 15rem;
+      width: 100%;
       &:before {
         content:'';
         position:absolute;
@@ -324,7 +324,9 @@ $colorScheme : (
   select.ng-touched.ng-invalid {
     border-bottom: 1px solid lightcoral !important;
   }
-
+  .error{
+    color: red;
+  }
   //SNACKBAR STYLING
   .mat-snack-bar-container{
     max-width: 100% !important;
@@ -368,6 +370,9 @@ $colorScheme : (
     }
   }
 
+  button.disabled{
+    opacity: .5;
+  }
   //Dialog box Image container
   .image_data{
     position: relative;

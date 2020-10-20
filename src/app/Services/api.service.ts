@@ -22,6 +22,21 @@ export class ApiService {
     // .toPromise();
     return gallery;
   }
+
+  signup(data:Object){
+    let getUrl = this.baseUrl + 'sign-up'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
+
+  login(data:Object){
+    let getUrl = this.baseUrl + 'sign-up'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
+
   publicImage(data:Object){
     let getUrl = this.baseUrl + 'search-for-images'
     return this.http.post(getUrl, data).pipe(retry(3))

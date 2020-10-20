@@ -1,0 +1,100 @@
+.mat-dialog-container{
+    padding: 0 !important;
+    overflow: auto !important;
+}
+mat-dialog-content{
+    min-height: 70vh !important;
+    padding: 0;
+    margin-top: -2rem;
+    max-height: initial;
+}
+.top{
+    padding: 1.5rem;
+}
+.profile {
+    padding: 0 2rem;
+    margin-top: -1.7rem;
+    img{
+        height: 91px;
+        width: 91px;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+    h6{
+        margin-bottom: 2.3rem;
+    }
+    p{
+        margin-bottom: 2.4rem;
+    }
+    .ig_area{
+        margin-bottom: 2.5rem;
+        a{
+            border: 1px solid #E0E0E0;
+            padding: .7rem 1rem;
+            color: #000 !important;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            border-radius: 2px;
+        }
+    }
+    
+}
+hr{
+    border-top: 1px solid #E0E0E0;
+}
+.share_gorup{
+    padding: 1.5rem 2rem 1rem 2rem;
+    .fb span{
+        background: #4967AD;
+    }
+    .twitter span{
+        background: #4AA0EB;
+    }
+    .pin span{
+        background: #CB2027;
+    }
+    .fb, .pin, .mail{
+        padding: 0 .5rem;
+        text-align: center;
+    }
+    .icons{
+        display: flex;
+    }
+    .icons span i{
+        font-size: 30px;
+    }
+    .mail span{
+        border: 1px solid #505050;
+    }
+    .icons{
+        padding-top: 1rem;
+    }
+    .icons span{
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        margin: 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .twitter span{
+        margin-left: 0 !important;
+    }
+}
+.share_action{
+    background: #E8E8E8;
+    padding: .8rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+    .copy{
+        background: #fff;
+        padding: .35rem .5rem;
+        border-radius: 2px;
+    }
+}

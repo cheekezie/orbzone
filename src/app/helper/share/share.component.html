@@ -1,1 +1,57 @@
-<p>share works!</p>
+<mat-dialog-content>
+    <div class="top bg-app-altBlack">
+
+    </div>
+    <div class="profile text-center">
+        <div>
+            <img [src]="data?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
+        </div>
+        <h6 class="text-app-black fw-800 f-24 font-weight-bold">
+            Say Thanks to {{data?.user?.surname}}
+        </h6>
+        <p class="text-app-dark f-14">
+            Our creators love hearing and seeing how you’ve used their <br>
+            photos. Show your appreciation by donating, tweeting, and following!
+        </p>
+        <div class="ig_area">
+            <a class="text-app-black f-16 font-weight-bold"> Contributor’s Instagram</a>
+        </div>
+        <i class="fi-xnsuxl-pinterest-alt"></i>
+        <hr>
+    </div>
+    <div class="share_gorup">
+        <h6 class="text-app-black f-18 font-weight-bold">Share Image</h6>
+        <div class="icons">
+            <div class="twitter text-center">
+                <span class="text-white">
+                    <i class="fab fa-twitter"></i>
+                </span>
+                <p class="font-weight-bold f-18">Twitter</p>
+            </div>
+            <div class="fb">
+                <span class="text-white">
+                    <i class="fab fa-facebook-f"></i>
+                </span>
+                <p class="font-weight-bold f-18">Facebook</p>
+            </div>
+            <div class="pin">
+                <span class="text-white">
+                    <i class="fab fa-pinterest-p"></i>
+                </span>
+                <p class="font-weight-bold f-18">Pinterest</p>
+            </div>
+            <div class="mail">
+                <span class="text-app-altBlack">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <p class="font-weight-bold f-18">Email</p>
+            </div>
+            
+        </div>
+        <p class="text-app-grey f-14">Set a link back to this photo. You can use the following text:</p>
+        <div class="share_action">
+            <p class="mb-0">Photo by Zainab Shaibu from <span class="font-weight-bold">Orbzone</span></p>
+            <span class="copy font-weight-bold f-16">Copy</span>
+        </div>
+    </div>
+</mat-dialog-content>

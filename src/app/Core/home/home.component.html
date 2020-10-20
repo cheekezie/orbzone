@@ -38,7 +38,7 @@
             <span class="ml-3 f-14 text-white">{{item?.user?.surname}} {{item?.user?.firstname}}</span>
         </div>
         <div class="icons d-flex">
-            <mat-icon >share</mat-icon>
+            <mat-icon (click)="share(item)">share</mat-icon>
             <mat-icon (click)="addCollection(item)">add_circle_outline</mat-icon>
             <mat-icon >favorite_border</mat-icon>
         </div>

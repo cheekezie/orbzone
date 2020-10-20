@@ -28,34 +28,40 @@
                 </p>
             </div>
             
-            <form >
+            <form [formGroup]="signupForm">
                 <div class="row">
                     <div class="group col-md-6">
                         <label for="firstname" class="fw-600 text-app-black">First Name</label>
-                        <input type="text" id="firstname" class="form-control" placeholder="">
+                        <input type="text" id="firstname" formControlName="surname" class="form-control" placeholder="">
                     </div>
                     <div class="group col-md-6">
                         <label for="lastname" class="fw-600 text-app-black">Last Name</label>
-                        <input type="text" id="lastname" class="form-control" placeholder="">
+                        <input type="text" id="lastname" formControlName="firstname" class="form-control" placeholder="">
                     </div>
                     <div class="group col-md-6">
                         <label for="phone" class="fw-600 text-app-black">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" placeholder="">
+                        <input type="text" class="form-control" formControlName="phone" id="phone" 
+                        (keyup)="validatePhone($event.target.value)" placeholder="">
+                        <small class="error f-12" *ngIf="phone_valid === 2">Incorrect phone number format</small>
                     </div>
                     <div class="group col-md-6">
-                        <label for="email" class="fw-600 text-app-black">Phone Number</label>
-                        <input type="email" class="form-control" id="email" placeholder="">
+                        <label for="email" class="fw-600 text-app-black">Email Address</label>
+                        <input type="email" class="form-control" formControlName="email" id="email" placeholder="">
                     </div>
                     <div class="group col-md-6">
                         <label for="pwd" class="fw-600 text-app-black">Password (min. 6 char)</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="">
+                        <input type="password" class="form-control" formControlName="password" id="pwd" placeholder="">
                     </div>
                     <div class="group col-md-6">
                         <label for="vpwd" class="fw-600 text-app-black">Confirm Password</label>
-                        <input type="password" class="form-control" id="vpwd" placeholder="">
+                        <input type="password" class="form-control" formControlName="vpwd" id="vpwd" placeholder="">
+                        <small class="error" *ngIf="signupForm.errors?.mismatchedFields && signupForm.get('vpwd').touched">Passwords do not match!</small>
                     </div>
                 </div>
-                <button class="bg-app-black text-white btn w-100">Join</button>
+                <button class="bg-app-black text-white btn w-100" (click)="join()"
+                [disabled]="!signupForm.valid || phone_valid === 2 || loader">Join
+                    <i class="fas fa-circle-notch fa-spin ml-4" *ngIf="loader"></i>
+                </button>
             </form>
             <footer class="text-center f-14">
                 <span>By joining, you agree to the</span>

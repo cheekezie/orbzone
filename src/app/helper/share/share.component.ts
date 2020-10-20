@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../Services/api.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-share',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialogRef: MatDialogRef<ShareComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private api: ApiService,
+  ) { }
 
   ngOnInit(): void {
   }

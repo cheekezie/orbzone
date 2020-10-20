@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { UtilService } from 'src/app/Services/util.service';
 import { AddCollectionComponent } from './../../helper/add-collection/add-collection.component';
@@ -25,6 +26,7 @@ export class SearchResultComponent implements OnInit {
     private util: UtilService,
     private router: Router,
     private api : ApiService,
+    private titleService: Title,
     private Activatedroute: ActivatedRoute
   ) { }
 
@@ -39,6 +41,7 @@ export class SearchResultComponent implements OnInit {
   async searchmages(){
     this.shimmer = true;
     this.params.name = this.Activatedroute.snapshot.queryParamMap.get('tag');
+    this.titleService.setTitle(`Interesting ${this.params.name} Photos | Orbzone`)
     this.api.searchImage(this.params).subscribe((res:any)=>{
       this.gallery = res.data.images.data.sort(() => Math.random() - 0.5);
       this.shimmer = false

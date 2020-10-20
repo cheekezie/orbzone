@@ -1,7 +1,9 @@
+
 .overlay{
     flex-direction: column;
     background: rgba(0, 0, 0, 0.7) !important;
     position: fixed;
+    overflow-y: auto;
     top: 0;
     right: 0;
     z-index: 99999;

@@ -2,16 +2,19 @@
     <app-top-nav class="w-100"></app-top-nav>
     <div class="content">
         <h6 class="font-weight-bold f-32 text-app-black">Welcome Back</h6>
-        <form >
+        <form [formGroup]="loginForm">
             <div class="group">
-                <input type="text" class="form-control" placeholder="Email address">
-                <mat-icon>mail</mat-icon>
+                <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number">
+                <mat-icon class="phone">phone</mat-icon>
             </div>
             <div class="group">
-                <input type="text" class="form-control" placeholder="Password">
+                <input type="text" class="form-control" formControlName="password" placeholder="Password">
                 <mat-icon>https</mat-icon>
             </div>
-            <button class="bg-app-black text-white btn">Login</button>
+            <button class="bg-app-black text-white btn" (click)="login()"
+                [disabled]="!loginForm.valid || loader">Login
+                <i class="fas fa-circle-notch fa-spin ml-4" *ngIf="loader"></i>
+            </button>
             <div class="text-center">
                 <span class="forgot_link cursor" 
                 [routerLink]="['/account/forgot-password']">Forgot Password?
