@@ -9,24 +9,37 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ImagePreviewDioalgComponent implements OnInit {
   gallery = [];
+  shimmer = false;
   tags = [
     "Asian", "Background", "Bowl", "Chinese", "Cuisine"
   ]
+  params = {
+    tag: ''
+  }
   constructor(
     private dialogRef: MatDialogRef<ImagePreviewDioalgComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private api: ApiService,
     private imageService: ApiService
   ) { }
 
   ngOnInit(): void {
-    this.getGallery();
+    console.log(this.data);
+    
+    this.params = this.data.tags
+    this.relatedImages();
   }
-  async getGallery(){
-    let res:any = await this.imageService.getGallery();
-    this.gallery = res.slice(0,12).sort(() => Math.random() - 0.5)
+
+  async relatedImages(){
+    this.shimmer = true;
+    this.api.relatedImages(this.params).subscribe((res:any)=>{
+      this.gallery = res.data.images.data.slice(0,12).sort(() => Math.random() - 0.5);
+      this.shimmer = false
+    })
   }
+
   open(item){
-    this.data.image = item;
+    this.data = item;
   }
 
 }

@@ -175,21 +175,23 @@ $colorScheme : (
       display: inline-block;
       margin-bottom: 16px;
       position: relative;
-
+      min-height: 15rem;
+      width: 15rem;
+      &:before {
+        content:'';
+        position:absolute;
+        border-radius: 5px;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        background-color:rgba(0,0,0,.3);
+      }
       img {
         width: 100%;
         border-radius: 5px;
       }
-    //   &:before {
-    //     border-radius: 5px;
-    //     content:'';
-    //     position:absolute;
-    //     top:0;
-    //     right:0;
-    //     bottom:0;
-    //     left:0;
-    //     background-color:rgba(0,0,0,.2);
-    //   }
+      
       &__title {
         font-size: 28px;
         font-weight:bold;
@@ -227,6 +229,161 @@ $colorScheme : (
     }
   }
   
+
+  //SHIMMER EFFECT
+  .shimmer_wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    padding: 1rem 5%;
+    @media (max-width: 599px) {
+      display: block;
+    }
+  }
+  .shimmer_card {
+    position: relative;
+    -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    border-radius: 6px;
+    height: auto;
+    overflow: hidden;
+    width: 32%;
+    margin-bottom: 1.5rem;
+    @media (max-width: 599px) {
+      width: 100%;
+    }
+    .shimmerBG {
+      animation-duration: 2.2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: shimmer;
+      animation-timing-function: linear;
+      background: #ddd;
+      background: linear-gradient(to right, #dddddde8 8%, #50505021 18%, #50505021 33%);
+      background-size: 1200px 100%;
+    }
+
+    @-webkit-keyframes shimmer {
+        0% {
+            background-position: -100% 0;
+        }
+        100% {
+            background-position: 100% 0;
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -1200px 0;
+        }
+        100% {
+            background-position: 1200px 0;
+        }
+    }
+      .media {
+      height: 300px;
+    }
+
+    .p-32 {
+      padding: 32px 5px;
+    }
+    .shimnmer_icons{
+      display: flex;
+      width: 40%;
+      padding-right: 5%;
+      justify-content: space-between;
+    }
+    .shimmer_user{
+      display: flex;
+      width: 60%;
+    }
+    .avatar {
+        height: 35px;
+        width: 35px;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+    .user{
+        height: 35px;
+        width: 70%;
+        border-radius: 5px;
+    }
+    .icons {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+  }
+  .m-t-24 {
+      margin-top: 24px;
+  }
+
+  //VALIDATION ERROR STYLING
+  input.ng-touched.ng-invalid, 
+  select.ng-touched.ng-invalid {
+    border-bottom: 1px solid lightcoral !important;
+  }
+
+  //SNACKBAR STYLING
+  .mat-snack-bar-container{
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .error-snackbar,.success-snackbar,.warning-snackbar{
+    z-index: 9999999;
+  }
+  .error-snackbar, .error-snackbar .mat-simple-snackbar-action{
+    background-color: red;
+    color: #fff !important;
+  }
+  .warning-snackbar, .mat-simple-snackbar-action{
+    background-color: orange;
+    color: #fff;
+  }
+  .success-snackbar, .success-snackbar .mat-simple-snackbar-action{
+    background-color: green;
+    color: #fff;
+  }
+
+  //CUSTOM POPUP
+  .overlay_notice{
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.7) !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .notice_content{
+      padding: 2rem 2rem 5rem 2rem;
+      background: #fff;
+      width: 22rem;
+      border-radius: 5px;
+      text-align: center;
+    }
+  }
+
+  //Dialog box Image container
+  .image_data{
+    position: relative;
+    min-height: 15rem;
+    height: auto;
+    &:before {
+        border-radius: 5px;
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        background-color:rgba(0,0,0,.3);
+    }
+  }
   //botoom buttons for image information, share/like/wishlist
   .bottom_panel {
     margin-top:auto;
@@ -255,8 +412,10 @@ $colorScheme : (
         object-fit: cover;
     }
     mat-icon{
-        height: 450px;
-        width: 45px;
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+        margin-right: 10px;
         cursor: pointer;
         color: #fff;
     }
@@ -279,4 +438,9 @@ $colorScheme : (
     }
   }
   
-  
+  //DISABLE INPUT FIELD AUTO ZOOM IN
+  @media screen and (max-width: 767px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }

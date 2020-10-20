@@ -2,12 +2,25 @@
     <div class="top d-flex justify-content-between mb-3 flex-wrap">
         <h6 class="f-16 fw-800 text-app-black f-18">Save to Collection</h6>
         <div class="filter_box cursor">
-            <a class="btn_grey">Create Collection</a>
+            <a class="btn_grey" (click)="toggleForm()">Create Collection</a>
         </div>
     </div>
-    <div class="mb-3">
-        <img [src]="data?.image" alt="">
+    <div class="mb-3 image_data" *ngIf="!create_form">
+        <img [src]="data?.preview" onerror="this.src='../../../assets/img/unavailable-image.jpg'" alt="Orbzone gallery" >
     </div>
+    <div class="create_form" *ngIf="create_form">
+        <div class="mb-3 empty_box border" >
+            <p>Create Collection</p>
+        </div>
+        <div class="new_form border" >
+            <label for="title" class="f-18 fw-800 mb-2">Title</label>
+            <input type="text" id="title" class="form-control">
+            <div class="text-right mt-2">
+                <a class="cursor btn bg-app-black text-white">Create Collection</a>
+            </div>
+        </div>
+    </div>
+    
     <div class="bottom f-14 text-app-black cursor font-weight-bold">
         <a >
             View Your Collections 

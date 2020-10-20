@@ -20,22 +20,25 @@
         <mat-icon>expand_more</mat-icon>
     </div>
 </div>
-<div class="masonry">
+<div class="masonry" *ngIf="!shimmer">
     <div class="grid" *ngFor="let item of gallery">
-      <img [src]="item" >
+      <img [src]="item?.preview" class="grid_image" onload="this.src='../../../assets/img/unavailable-image.jpg'" 
+      onerror="this.src='../../../assets/img/unavailable-image.jpg'" alt="Orbzone gallery">
       <div class="grid__body cursor" (click)="open(item)">
       </div>
       <div class="bottom_panel mt-auto">
         <div class="avatar cursor d-flex align-items-center" (click)="open(item)">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
-            <span class="ml-3 f-14 text-white">Mohammed Odutola</span>
+            <img [src]="item?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
+            <span class="ml-3 f-14 text-white">{{item?.user?.surname}} {{item?.user?.firstname}}</span>
         </div>
         <div class="icons d-flex">
             <mat-icon >share</mat-icon>
-            <mat-icon >add_circle_outline</mat-icon>
+            <mat-icon (click)="addCollection(item)">add_circle_outline</mat-icon>
             <mat-icon >favorite_border</mat-icon>
         </div>
       </div>
     </div>
     
   </div>
+  
+  <app-shimmer *ngIf="shimmer"></app-shimmer>

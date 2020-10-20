@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AltNavbarComponent } from './alt-navbar/alt-navbar.component';
 import { AddCollectionComponent } from './add-collection/add-collection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShareComponent } from './share/share.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent, 
     ImagePreviewDioalgComponent, 
     AltNavbarComponent, 
-    AddCollectionComponent
+    AddCollectionComponent, ShareComponent
   ],
   imports: [
     CommonModule,

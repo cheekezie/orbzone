@@ -16,21 +16,29 @@ export class HomeComponent implements OnInit {
   search_term = ""
   notification = false;
   show_search = true;
+  initialLoader = true;
+  shimmer = false;
   tabs = [
     "Home",
     "Discover",
     "Illustrations",
     "New"
-  ]
+  ];
+  params = {
+    name: '',
+    start: '',
+    end: ''
+  }
   gallery = [];
   constructor(
     private imageService: ApiService,
     private util: UtilService,
+    private api: ApiService,
     private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.getGallery();
+    this.publicImages();
     setTimeout(() => {
       this.notification = true;
     }, 5000);
@@ -45,9 +53,12 @@ export class HomeComponent implements OnInit {
       this.show_search = false;
     }
   }
-  async getGallery(){
-    let res:any = await this.imageService.getGallery();
-    this.gallery = res.sort(() => Math.random() - 0.5)
+  async publicImages(){
+      this.shimmer = true;
+      this.api.searchImage(this.params).subscribe((res:any)=>{
+        this.gallery = res.data.images.data;
+        this.shimmer = false
+      })
   }
   changeTab(item){
     this.active_tab = item;
@@ -56,7 +67,7 @@ export class HomeComponent implements OnInit {
     if(this.search_term.trim().length > 2){
       setTimeout(() => {
         this.search()
-      }, 2000);
+      }, 5000);
     }
   }
   enter(){
@@ -65,21 +76,16 @@ export class HomeComponent implements OnInit {
   search(){
     this.util.searchRoute('/search',this.search_term.trim())
   }
-  open(url: String): void {
+  open(item: Object): void {
     const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = {
-      image: url,
-      author: {}
-    }
+    dialogConfig.data = item;
     dialogConfig.width = '100%';
     this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
   }
-  addCollection(url: String): void {
+  addCollection(data: Object): void {
     const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = {
-      image: url,
-      author: {}
-    }
+    dialogConfig.data = data;
+    dialogConfig.disableClose = false;
     dialogConfig.width = '38rem';
     this.matDialog.open(AddCollectionComponent, dialogConfig);  
   }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
@@ -11,6 +12,7 @@ export class UtilService {
   encryptSecretKey = "diego";
   constructor(
     private router:Router,
+    private snackBar: MatSnackBar,
     private cookieService: CookieService
     ) {
   }
@@ -81,6 +83,8 @@ export class UtilService {
     dialogConfig.closeOnNavigation = true;
     return dialogConfig
   }
+
+  //NAVIGATION TO SEARCH PAGE
   searchRoute(path,query){
     this.router.navigate([path], {
       queryParams: {
@@ -88,5 +92,33 @@ export class UtilService {
       },
       queryParamsHandling: 'merge',
     });
+  }
+
+  //SNACKBAR METHODS
+  succesSnackbar(msg){
+    this.snackbarConfig(
+      'Success',msg,'success-snackbar'
+    )
+  }
+
+  errorSnackbar(msg){
+    this.snackbarConfig(
+      'Error',msg,'error-snackbar'
+    )
+  }  
+
+  warningSnackbar(msg){
+    this.snackbarConfig(
+      'Warning',msg,'warning-snackbar'
+    )
+  }
+
+  snackbarConfig(title,msg,theme){
+    this.snackBar.open(title, msg, {
+      duration: 7000,
+      verticalPosition: 'top',
+      //horizontalPosition: 'right',
+      panelClass: [theme],
+   });
   }
 }

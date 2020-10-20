@@ -1,10 +1,10 @@
 <mat-dialog-content>
     <div class="top">
         <div class="avatar cursor d-flex align-items-center">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
+            <img [src]="data?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
             <div class="name text-app-black ml-2">
-                <h6 class="f-16 font-weight-bold mb-0">Orbzone Global</h6> 
-                <p class="f-14 mb-0">124 Photos</p>
+                <h6 class="f-16 font-weight-bold mb-0">{{data?.user?.brand_name}}</h6> 
+                <p class="f-14 mb-0">{{data?.user?.contribution_count}} Photos</p>
             </div>
         </div>
         <div class="buttons">
@@ -16,15 +16,15 @@
     <div class="preview">
         <div class="image">
             <div class="title">
-                <h6 class="text-app-black black font-weight-bold f-14">Friends enjoying the park together</h6>
-                <p class="font-weight-bold">Royalty-free stock photo ID: 421</p>
+                <h6 class="text-app-black black font-weight-bold f-14">{{data?.name}}</h6>
+                <p class="font-weight-bold">Royalty-free stock photo ID: {{data?.imid}}</p>
             </div>
             <div class="image_data">
-                <img [src]="data?.image" alt="" class="w-100">
+                <img [src]="data?.preview" onerror="this.src='../../../assets/img/unavailable-image.jpg'" alt="Orbzone gallery" class="w-100">
                 <div class="bottom_panel mt-auto">
                     <div class="avatar cursor d-flex align-items-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
-                        <span class="ml-3 f-14 text-white">Mohammed Odutola</span>
+                        <img [src]="data?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
+                        <span class="ml-3 f-14 text-white">{{data?.user?.surname}} {{data?.user?.firstname}}</span>
                     </div>
                     <div class="icons d-flex">
                         <mat-icon >share</mat-icon>
@@ -35,7 +35,7 @@
             </div>
             
             <div class="tags">
-                <span class="tag" *ngFor="let item of tags">{{item}}</span>
+                <span class="tag" *ngFor="let item of data?.tags">{{item}}</span>
             </div>
             
         </div>
@@ -45,13 +45,13 @@
         </div>
         <div class="masonry">
             <div class="grid" *ngFor="let item of gallery">
-              <img [src]="item" >
+              <img [src]="item?.preview" onerror="this.src='../../../assets/img/unavailable-image.jpg'" alt="Orbzone gallery" class="w-100">
               <div class="grid__body cursor" (click)="open(item)">
               </div>
               <div class="bottom_panel mt-auto">
                 <div class="avatar cursor d-flex align-items-center" (click)="open(item)">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnhTKPGw61t95WDLsAyMMMPlRrCncGyRnCVw&usqp=CAU" alt="">
-                    <span class="ml-3 f-14 text-white">Mohammed Odutola</span>
+                    <img [src]="item?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
+                    <span class="ml-3 f-14 text-white">{{item?.user?.surname}} {{item?.user?.firstname}}</span>
                 </div>
                 <div class="icons d-flex">
                     <mat-icon >add_circle_outline</mat-icon>
@@ -62,5 +62,6 @@
             </div>
             
         </div>
+        <app-shimmer *ngIf="shimmer"></app-shimmer>
     </div>
 </mat-dialog-content>

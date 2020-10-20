@@ -1,5 +1,10 @@
+import { Component, HostListener, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { UtilService } from 'src/app/Services/util.service';
+import { AddCollectionComponent } from './../../helper/add-collection/add-collection.component';
+import { ImagePreviewDioalgComponent } from './../../helper/image-preview-dioalg/image-preview-dioalg.component';
 import { ApiService } from './../../Services/api.service';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-explore',
@@ -8,16 +13,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreComponent implements OnInit {
   gallery = [];
+  shimmer = false;
+  params = {
+    name: '',
+    start: '',
+    end: ''
+  }
   constructor(
-    private imageService: ApiService
+    private matDialog: MatDialog,
+    private util: UtilService,
+    private api : ApiService,
+    private Activatedroute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getGallery();
+    this.getImages();
   }
-  async getGallery(){
-    let res:any = await this.imageService.getGallery();
-    this.gallery = res.sort(() => Math.random() - 0.5)
+  async getImages(){
+    this.shimmer = true;
+    this.api.searchImage(this.params).subscribe((res:any)=>{
+      this.gallery = res.data.images.data.sort(() => Math.random() - 0.5);
+      this.shimmer = false
+    })
+  }
+
+  open(item: Object): void {
+    const dialogConfig = this.util.dialogConfig();
+    dialogConfig.data = item;
+    dialogConfig.width = '100%';
+    this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
+  }
+  addCollection(data: Object): void {
+    const dialogConfig = this.util.dialogConfig();
+    dialogConfig.data = data;
+    dialogConfig.disableClose = false;
+    dialogConfig.width = '38rem';
+    this.matDialog.open(AddCollectionComponent, dialogConfig);  
   }
 
 }
+
