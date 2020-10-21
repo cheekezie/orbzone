@@ -34,7 +34,11 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    JwtModule.forRoot({})
+    JwtModule.forRoot({
+      config: {
+        
+      }
+    })
   ],
   providers: [
     CookieService,

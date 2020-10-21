@@ -1,3 +1,4 @@
+import { UtilService } from 'src/app/Services/util.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-tab.component.scss']
 })
 export class DashboardTabComponent implements OnInit {
-
-  constructor() { }
+  user:any
+  constructor(
+    private util: UtilService
+  ) { }
 
   ngOnInit(): void {
+    this.user = this.util.getUserObject();
+    console.log(this.user);
+    
   }
 
 }
