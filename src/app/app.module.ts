@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtModule } from "@auth0/angular-jwt";
 import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { MaterialModule } from './material/material.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({})
   ],
   providers: [
     CookieService,

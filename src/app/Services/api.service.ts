@@ -36,6 +36,33 @@ export class ApiService {
     .pipe(retry(2),tap( )
     )
   }
+  resetPassword(data:Object){
+    let getUrl = this.baseUrl + 'start-forgot-password'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
+
+  confirmCode(data:Object){
+    let getUrl = this.baseUrl + 'confirm-phone-code'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
+
+  resendCode(){
+    let getUrl = this.baseUrl + 'resend-phone-code'
+    return this.http.post(getUrl, {})
+    .pipe(retry(2),tap( )
+    )
+  }
+
+  setNewPassword(data:Object){
+    let getUrl = this.baseUrl + 'finish-forgot-password'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
 
   publicImage(data:Object){
     let getUrl = this.baseUrl + 'search-for-images'

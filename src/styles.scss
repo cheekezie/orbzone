@@ -427,6 +427,10 @@ $colorScheme : (
     }
   }
 
+  //PHONE ICON STYLING
+  .phone{
+    transform: rotate(200deg);
+  }
   //CUSTOM SCROLLBAR FOR MATERIAL DIALOG
   mat-dialog-content{
     &::-webkit-scrollbar {

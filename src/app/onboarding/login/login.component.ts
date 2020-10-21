@@ -25,13 +25,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
   async login(){
     this.loader = true;
     this.api.login(this.loginForm.value).subscribe((res:any)=>{
       this.util.succesSnackbar('Login successful');
-      this.util.setUserObject(res.data);
-      //this.router.navigate(['/user'])
+      this.util.setUserObject(res.data.user);
+      this.util.setToken(res.data.token)
+      this.router.navigate(['/user'])
     },err =>(
       this.loader = false
     ))

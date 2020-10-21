@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
     private util: UtilService,
   ) {
     this.signupForm = this.formbuilder.group({
-      password : ['', [Validators.required, Validators.minLength(7)]],
+      password : ['', [Validators.required, Validators.minLength(6)]],
       firstname : ['', Validators.required],
       email : ['', [Validators.required, Validators.email]],
       vpwd : ['', Validators.required],
@@ -56,8 +56,9 @@ export class SignUpComponent implements OnInit {
     formData.append('password', this.signupForm.value.password);
     this.api.signup(formData).subscribe((res:any)=>{
       this.util.succesSnackbar('Sign Up successful');
-      this.util.setUserObject(res.data);
-      //this.router.navigate(['/user'])
+      this.util.setUserObject(res.data.user);
+      this.util.setToken(res.data.token)
+      this.router.navigate(['/user'])
     },err =>(
       this.loader = false
     ))

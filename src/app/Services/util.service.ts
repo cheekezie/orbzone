@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,6 +13,7 @@ export class UtilService {
   encryptSecretKey = "diego";
   constructor(
     private router:Router,
+    private jwtHelper: JwtHelperService,
     private snackBar: MatSnackBar,
     private cookieService: CookieService
     ) {
@@ -34,10 +36,22 @@ export class UtilService {
       return JSON.parse(user)
     }
   }
+  
+  //Temporary token generated during pwd reset
+  setTempToken(token){
+    this.cookieService.set('/temp-token', token, 2, );
+  }
+  getTempToken(){
+    const token = this.cookieService.get('/temp-token');
+    if(token){
+      return token
+    }
+  }
+
+  //AUTH TOKEN
   setToken(token){
     this.cookieService.set('/key', token, 2, );
   }
-
   getToken(){
     const token = this.cookieService.get('/key');
     if(token){
@@ -46,7 +60,8 @@ export class UtilService {
   }
 
   isAthourized(allowedUsertypes: string[]): any{
-    //check if the list of allowedusertpes for aroute is empty, if empty, authorize the user to access the page
+    //check if the list of allowedusertpes for aroute is empty, 
+    //if empty, authorize the user to access the page
     if (allowedUsertypes == null || allowedUsertypes.length === 0){
         return true;
     }
@@ -63,11 +78,16 @@ export class UtilService {
   c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
   }
 
+  getUserType(){
+    const token = this.cookieService.get('/key');
+    return this.jwtHelper.decodeToken(token).scopes
+  }
   isLoggedIn(): boolean {
-    if(localStorage.getItem('x')){
-      return true;
+    const token = this.cookieService.get('/key');
+    if(!token || this.jwtHelper.isTokenExpired(token)){
+      return false;
     }
-    return false
+    return true
   }
   
   logout() {
@@ -114,7 +134,7 @@ export class UtilService {
 
   snackbarConfig(title,msg,theme){
     this.snackBar.open(title, msg, {
-      duration: 70000,
+      duration: 7000,
       verticalPosition: 'top',
       //horizontalPosition: 'right',
       panelClass: [theme],
