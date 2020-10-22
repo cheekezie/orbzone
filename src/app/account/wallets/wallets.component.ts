@@ -24,6 +24,7 @@ export class WalletsComponent implements OnInit {
     accountid: ""
   };
   profile : any;
+  user : any;
   accountForm: FormGroup;
   withdrawalForm: FormGroup;
   constructor(
@@ -49,7 +50,8 @@ export class WalletsComponent implements OnInit {
     this.loader = true;
     this.api.profile().subscribe((res:any)=>{
       this.accounts = res.data.accounts;
-      this.withdrawals = res.data.withdrawals.data
+      this.withdrawals = res.data.withdrawals.data;
+      this.user = res.data.user;
       this.loader = false;
     },err=>(
       this.loader = false

@@ -1,1 +1,108 @@
-<p>my-account works!</p>
+<div class="wrapper">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <h6 class="text-app-black fw-800">Account settings</h6>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active text-app-black" id="profile-tab" 
+            data-toggle="tab" href="#profile"
+            role="tab" aria-controls="profile" aria-selected="true">Edit Proflie</a>
+        </li>
+    
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-app-black" id="password-tab" data-toggle="tab" href="#password"
+            role="tab" aria-controls="password" aria-selected="false">Change Password</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-app-black" id="card-tab" data-toggle="tab" href="#card"
+            role="tab" aria-controls="card" aria-selected="false">Debit Cards</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h6 class="text-app-black fw-800">Edit profile</h6>
+            <div class="profile_group">
+                <div class="profile_image">
+                    <img [src]="image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone author">
+                    <input type="file" style="display: none;" #uploadFile
+                    accept=".jpg, .jpeg, .png" (change)="onUploadProfile($event)"/>
+                    <br> 
+                    <span class="text-center" (click)="uploadFile.click()">
+                        Change profile image
+                    </span> 
+                    <br> <span class="text-app-grey f-14">{{image_name}}</span>
+                    <br> 
+                    <span class="btn bg-app-black" *ngIf="image_change">Save Image
+                        <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="image_loader"></i>
+                    </span>
+                </div>
+                <form [formGroup]="profileForm">
+                    <div class="row">
+                        <div class="group col-md-6 text-left">
+                            <label for="fname" class="fw-600 text-app-black">First Name</label>
+                            <input type="text" class="form-control" id="fname" formControlName="firstname">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="lname" class="fw-600 text-app-black">Last Name</label>
+                            <input type="text" class="form-control" id="lname" formControlName="surname">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="email" class="fw-600 text-app-black">Email Address</label>
+                            <input type="text" class="form-control" id="email" formControlName="email">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="phone" class="fw-600 text-app-black">Phone</label>
+                            <input type="text" class="form-control" id="phone" formControlName="phone">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="pot" class="fw-600 text-app-black">Peersonalsite/portfolio</label>
+                            <div class="position-relative portfolio"> 
+                                <input type="text" class="form-control" id="pot" formControlName="portfolio">
+                                <span class="prefix">www.</span>
+                            </div>
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="fname" class="fw-600 text-app-black">Location</label>
+                            <input type="text" class="form-control" id="loc" formControlName="location">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="ig" class="fw-600 text-app-black">Instagram username</label>
+                            <div class="position-relative ig"> 
+                                <input type="text" class="form-control" id="ig" formControlName="instagram">
+                                <span class="prefix">@</span>
+                            </div>
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="twitter" class="fw-600 text-app-black">Twitter username</label>
+                            <div class="position-relative twitter"> 
+                                <input type="text" class="form-control" id="twitter" formControlName="twitter">
+                                <span class="prefix">@</span>
+                            </div>
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="brand" class="fw-600 text-app-black">Brand Name</label>
+                            <input type="text" class="form-control" id="brand" formControlName="brand_name">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="address" class="fw-600 text-app-black">Address</label>
+                            <input type="text" class="form-control" id="address" formControlName="address">
+                        </div>
+                        <div class="group col-md-12 text-left">
+                            <label for="bio" class="fw-600 text-app-black">Bio</label>
+                            <textarea name="bio" id="" cols="30" rows="10" formControlName="bio"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn bg-app-black w-100"
+                        [disabled]="loader">Update account
+                        <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="loader"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="tab-pane" id="password" role="tabpanel" aria-labelledby="password-tab">
+            
+        </div>
+        <div class="tab-pane" id="card" role="tabpanel" aria-labelledby="card-tab">
+            
+        </div>
+    </div>
+</div>
