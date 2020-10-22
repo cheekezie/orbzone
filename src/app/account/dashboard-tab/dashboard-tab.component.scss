@@ -106,10 +106,17 @@ $primary: #F2994A;
   .nav-tabs .nav-link:hover{
     border: 1px solid transparent !important;
   }
-  
-@media (max-width: 599px) {
+@media (max-width: 768px) {
     .main{
         display: block;
+        padding: 8rem 5% 1.5rem 5%;
+    }
+    .summary, .profile{
+        width: 100%;
+    }
+}
+@media (max-width: 599px) {
+    .main{
         padding: 6.5rem 5% 1.5rem 5%;
     }
     .profile{
@@ -138,10 +145,7 @@ $primary: #F2994A;
             padding: .5rem 1.2rem;
         }
     }
-    .summary, .profile{
-        width: 100%;
-    }
-
+    
     .nav-tabs .nav-item{
         margin-bottom: 1.1rem;
       }
