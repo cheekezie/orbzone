@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HelperModule } from './../helper/helper.module';
+import { MaterialModule } from './../material/material.module';
 import { AccountRoutingModule } from './account-routing.module';
 import { CollectionsComponent } from './collections/collections.component';
 import { ContributionsComponent } from './contributions/contributions.component';
@@ -30,6 +31,8 @@ import { WalletsComponent } from './wallets/wallets.component';
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     HelperModule,
     AccountRoutingModule
   ]

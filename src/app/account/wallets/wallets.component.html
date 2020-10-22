@@ -6,7 +6,7 @@
         </div>
         <h6 class="font-weight-bold f-18">Withdraw Funds</h6>
         <p class="mb-4 f-14 fw-600">Withdraw your earnings from your Orbzone account</p>
-        <form action="">
+        <form [formGroup]="withdrawalForm">
             <div class="group">
                 <label for="amount" class="fw-600 text-app-black">Choose Account</label>
                 <select class="form-control" id="account" name="account">
@@ -21,10 +21,15 @@
                 <label for="pwd" class="fw-600 text-app-black">Password</label>
                 <input type="password" class="form-control" id="pwd" placeholder="xxxxxxx">
             </div>
-            <button class="btn bg-app-black w-100">Withdraw Funds</button>
+            <button class="btn bg-app-black w-100"
+                [disabled]="!withdrawalForm.valid || withdrawalLoader">Withdraw Funds
+                <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="withdrawalLoader"></i>
+            </button>
         </form>
     </div>
     <div class="details">
+        <mat-progress-bar mode="query" color="accent" *ngIf="loader">
+        </mat-progress-bar>
         <div class="accounts border">
             <div class="add_account flex_x_between mb-3">
                 <div class="pr-3">
@@ -36,11 +41,11 @@
             <div class="account_group flex_x_between">
                 <div class="account_item flex_x_between" *ngFor="let item of accounts">
                     <div class="pr-3 ">
-                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
-                        <p>Sterling Bank</p>
-                        <p class="mb-0">9998053256</p>
+                        <h6 class="text-app-black f-14 font-weight-bold">{{item?.account_name}}</h6>
+                        <p>{{item?.account_bank}}</p>
+                        <p class="mb-0">{{item?.account_number}}</p>
                     </div>
-                    <mat-icon>delete_forever</mat-icon>
+                    <mat-icon (click)="delete(item?.accountid)">delete_forever</mat-icon>
                 </div>
             </div>
             <div class="py-5 text-center" *ngIf="accounts.length == 0 && !loader">
@@ -61,7 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of history; let i = index">
+                    <tr *ngFor="let item of withdrawals; let i = index">
                         <td>Zenith Bank</td>
                         <td>4000</td>
                         <td>2nd Aug, 2020</td>
@@ -72,7 +77,7 @@
                 </tbody>
                 
             </table>
-            <div class="py-5 text-center" *ngIf="history.length == 0 && !loader">
+            <div class="py-5 text-center" *ngIf="withdrawals.length == 0 && !loader">
                 <h6 class="text-app-black f-16 fw-800 text-center">
                   No History withdrawal available
                 </h6>
@@ -82,24 +87,39 @@
 </div>
 <div class="overlay_notice" *ngIf="add_account">
     <div class="notice_content">
-        <div class="text-right py-3">
-            <i class="fas fa-times f-24 text-app-black"></i>
+        <div class="text-right pt-3 mb-2">
+            <i class="fas fa-times f-24 text-app-black cursor" 
+            (click)="add_account = false"></i>
         </div>
-        <form action="">
+        <h6 class="text-center font-weight-bold f-22 text-app-black mb-4">
+            Add Bank Account
+        </h6>
+        <form [formGroup]="accountForm">
             <div class="group text-left">
                 <label for="bank" class="fw-600 text-app-black">Select Bank</label>
-                <select class="form-control" id="bank" name="account">
+                <select class="form-control" id="bank" name="account" formControlName="bank">
                     <option value="" disabled selected>Choose account</option>
+                    <option [value]="item" *ngFor="let item of banks">{{item}}</option>
                 </select>
             </div>
             <div class="group text-left">
                 <label for="numb" class="fw-600 text-app-black">Account Number</label>
-                <input type="text" class="form-control" id="numb" placeholder="00000000000">
+                <input type="text" class="form-control" id="numb" 
+                formControlName="account_number" placeholder="00000000000">
             </div>
-            <div class="group">
-                <input type="text" readonly class="form-control" id="name">
+            <div class="group" *ngIf="resolved">
+                <input type="text" readonly class="form-control" id="name"
+                formControlName="account_name" >
             </div>
-            <button class="btn bg-app-success mt-4 w-100 text-white py-2">Save</button>
+            <button class="btn bg-app-success mt-4 w-100 text-white" *ngIf="!resolved"
+                [disabled]="!accountForm.valid || accountLoader" (click)="resolveAccount()">
+                Verify Account 
+                <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="accountLoader"></i>
+            </button>
+            <button class="btn bg-app-success mt-4 w-100 text-white" 
+            (click)="addAccount()" *ngIf="resolved">
+                Save <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="accountLoader"></i>
+            </button>
         </form>
     </div>
 </div>

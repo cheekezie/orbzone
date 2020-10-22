@@ -23,6 +23,13 @@ export class ApiService {
     return gallery;
   }
 
+  profile(){
+    let getUrl = this.baseUrl + 'profile'
+    return this.http.get(getUrl)
+    .pipe(retry(2),tap( )
+    )
+  }
+
   signup(data:Object){
     let getUrl = this.baseUrl + 'sign-up'
     return this.http.post(getUrl, data)
@@ -39,21 +46,21 @@ export class ApiService {
   resetPassword(data:Object){
     let getUrl = this.baseUrl + 'start-forgot-password'
     return this.http.post(getUrl, data)
-    .pipe(retry(2),tap( )
+    .pipe(tap( )
     )
   }
 
   confirmCode(data:Object){
     let getUrl = this.baseUrl + 'confirm-phone-code'
     return this.http.post(getUrl, data)
-    .pipe(retry(2),tap( )
+    .pipe(tap( )
     )
   }
 
   resendCode(){
     let getUrl = this.baseUrl + 'resend-phone-code'
     return this.http.post(getUrl, {})
-    .pipe(retry(2),tap( )
+    .pipe(tap( )
     )
   }
 
@@ -66,7 +73,7 @@ export class ApiService {
 
   publicImage(data:Object){
     let getUrl = this.baseUrl + 'search-for-images'
-    return this.http.post(getUrl, data).pipe(retry(3))
+    return this.http.post(getUrl, data).pipe(retry(2))
     .toPromise();
   }
 
@@ -97,4 +104,31 @@ export class ApiService {
     .pipe(retry(2),tap( )
     )
   }
+
+  //ACCOUNT APIS
+  addAccount(data:Object){
+    let getUrl = this.baseUrl + 'add-bank-account'
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
+    )
+  }
+  resolveAccount(data:Object){
+    let getUrl = this.baseUrl + 'resolve-account'
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
+    )
+  }
+  deleteAccount(data:Object){
+    let getUrl = this.baseUrl + 'delete-bank-account'
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
+    )
+  }
+  defaultAccount(data:Object){
+    let getUrl = this.baseUrl + 'make-account-default'
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
+    )
+  }
+  
 }

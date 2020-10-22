@@ -26,6 +26,10 @@
     color: #999;
     }
 }
+select.form-control{
+    padding: .7rem 1.2rem !important;
+    height: 2.8rem !important;
+}
 .form-control, p{
     color: #828282;
         &::placeholder{
@@ -62,6 +66,10 @@
         font-size: 20px;
         height: 20px;
         width: 20px;
+        color: #333;
+    }
+    .btn{
+        padding: .5rem 1.5rem;
     }
 }
 .account_group{
@@ -117,10 +125,13 @@ tr td{
 }
 .notice_content{
     width: 26rem;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 1rem 1.5rem;
     form{
         padding: .5rem 1.2rem;
+    }
+    .btn{
+        padding: .7rem .8rem;
     }
     .form-control{
         border: 1px solid #E0E0E0 !important;
@@ -142,5 +153,8 @@ tr td{
   @media (max-width: 599px) {
     .account_item{
         width: 100%;
+    }
+    .notice_content{
+        width: 23rem;
     }
   }
