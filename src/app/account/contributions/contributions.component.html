@@ -1,33 +1,27 @@
 <div class="wrapper">
-    <div class="image_item">
+    <div class="image_item" *ngFor="let item of contributions">
         <div class="top">
             <button class="bg_grey btn">Edit</button>
             <button class="btn bg_grey icon_btn">
                 <mat-icon>delete_forever</mat-icon>
-            </button>
-            
+            </button> 
         </div>
         <img src="../../../assets/img/gallery-1.png" alt="">
         <div class="bottom">
-            <span class="btn bg-app-success text-white">Published</span>
-            <button class="btn bg_grey icon_btn">
-                <mat-icon>save_alt</mat-icon>
-            </button>
-        </div>
-    </div>
-    <div class="image_item">
-        <div class="top">
-            <button class="bg_grey btn">Edit</button>
-            <button class="btn bg_grey icon_btn">
-                <mat-icon>delete_forever</mat-icon>
-            </button>
-        </div>
-        <img src="../../../assets/img/gallery-1.png" alt="">
-        <div class="bottom">
-            <span class="btn bg-app-success text-white">Published</span>
+            <span class="btn  text-white"
+                [ngClass]="{'bg-app-success': item?.status == 'published',
+                'bg-app-primary': item?.status == 'un-published'}">
+                {{item?.status}}
+            </span>
             <button class="btn bg_grey icon_btn">
                 <mat-icon>save_alt</mat-icon>
             </button>
         </div>
     </div>
 </div>
+<div class="py-5 text-center" *ngIf="contributions.length == 0 && !loader">
+    <h6 class="text-app-black f-24 fw-800">
+      It appears You don't have any contributions yet 
+    </h6>
+</div>
+<app-shimmer *ngIf="loader"></app-shimmer>

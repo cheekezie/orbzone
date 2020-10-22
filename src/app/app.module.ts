@@ -11,7 +11,6 @@ import { ExploreComponent } from './Core/explore/explore.component';
 import { HomeComponent } from './Core/home/home.component';
 import { NotfoundComponent } from './Core/notfound/notfound.component';
 import { SearchResultComponent } from './Core/search-result/search-result.component';
-import { ShimmerComponent } from './Core/shimmer/shimmer.component';
 import { HelperModule } from './helper/helper.module';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
 import { MaterialModule } from './material/material.module';
@@ -23,7 +22,6 @@ import { MaterialModule } from './material/material.module';
     ExploreComponent,
     NotfoundComponent,
     SearchResultComponent,
-    ShimmerComponent,
   ],
   imports: [
     BrowserModule,

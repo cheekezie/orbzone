@@ -90,4 +90,11 @@ export class ApiService {
     .pipe(retry(2),tap( )
     )
   }
+
+  contributions(data:Object){
+    let getUrl = this.baseUrl + 'contributions'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
 }
