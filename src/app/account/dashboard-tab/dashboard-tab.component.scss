@@ -10,7 +10,10 @@ $primary: #F2994A;
     width: 48%;
     .info{
         padding-left: 2rem;
-        padding-top: 1rem;
+        padding-top: .6rem;
+    }
+    h6{
+        margin-bottom: 1rem;
     }
     img{
         height: 162px;
@@ -24,12 +27,18 @@ $primary: #F2994A;
 }
 .summary{
     width: 48%;
+    padding-top: 1.7rem;
 }
 .summary_card{
     border-radius: 6px;
-    padding: 2rem 1.5rem;
+    padding: 1.7rem 1.5rem;
     width: 47%;
     color: #fff;
+    mat-icon{
+        width: 45px;
+        height: 45px;
+        font-size: 45px;
+    }
 }
 .amount{
     background: #27AE60;
@@ -81,6 +90,9 @@ $primary: #F2994A;
 @media (max-width: 599px) {
     .main{
         display: block;
+    }
+    .profile{
+        margin-bottom: 1.5rem;
     }
     .summary, .profile{
         width: 100%;

@@ -11,29 +11,35 @@
                 <span class="btn_grey">Edit Profile</span>
             </div>
             <p class="f-15 text-app-black">{{user?.email}}
-            <span>23 Photos</span>
+            <span class="pl-4">{{user?.contribution_count}} Photos</span>
             </p>
-            <p class="bio f-15 fw-600 text-app-black">Bio here</p>
+            <p class="bio f-15 fw-600 text-app-black">Just an afrocentric photogropher looking for relatable photos
+                in the african way of life</p>
         </div>
     </div>
     <div class="summary">
         <div class="filter_box cursor text-right d-flex align-items-center justify-content-end">
-            <h6 class="f-15 text-app-black">
-                Filter By: <span class="fw-600">Today</span>
+            <h6 class="f-15 text-app-black" [matMenuTriggerFor]="menu">
+                Filter By: <span class="fw-600">{{filter | titlecase}}</span>
+                <mat-icon>expand_more</mat-icon>
             </h6>
-            <mat-icon>expand_more</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let item of options" 
+                [ngClass]="{'text-app-primary': filter?.duration == item}"
+                (click)="filterAnalytics(item)">{{item}}</button>
+            </mat-menu>
         </div>
         <div class="cards">
-            <div class="summary_card d-flex image_count bg-app-altBlack">
+            <div class="summary_card d-flex image_count bg-app-altBlack align-items-center">
                 <mat-icon>photo_camera</mat-icon>
                 <div class="ml-3">
-                    <h6 class="f-32 mb-0">30</h6>
+                    <h6 class="f-32 mb-0">{{analytics?.contributions?.total}}</h6>
                     <span class="f-14">Photos</span>
                 </div>
             </div>
             <div class="summary_card amount">
-                <h6 class="f-32 mb-0">N30000</h6>
-                <span class="f-14">Today</span>
+                <h6 class="f-32 mb-0">N{{analytics?.earning_total}}</h6>
+                <span class="f-14">{{filter | titlecase}}</span>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@ export class HttpinterceptorService {
         setHeaders: {
           //"Content-Type": "application/json",
           Accept: "application/json",
-          Authorization:`${currentUser}`
+          Authorization:`Bearer ${currentUser}`
         }
       });
     }

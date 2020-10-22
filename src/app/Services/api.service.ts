@@ -83,4 +83,11 @@ export class ApiService {
     .pipe(retry(2),tap( )
     )
   }
+
+  dashboard(data:Object){
+    let getUrl = this.baseUrl + 'dashboard'
+    return this.http.post(getUrl, data)
+    .pipe(retry(2),tap( )
+    )
+  }
 }

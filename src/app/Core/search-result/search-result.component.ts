@@ -48,7 +48,6 @@ export class SearchResultComponent implements OnInit {
     },err =>(
       this.shimmer = false
     ))
-    
   }
 
   open(item: Object): void {
