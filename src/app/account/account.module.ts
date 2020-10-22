@@ -1,18 +1,18 @@
-import { ContributionsComponent } from './contributions/contributions.component';
-import { MyAccountComponent } from './my-account/my-account.component';
-import { EditPhotoComponent } from './edit-photo/edit-photo.component';
-import { PhotosComponent } from './photos/photos.component';
-import { WalletsComponent } from './wallets/wallets.component';
-import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardTabComponent } from './dashboard-tab/dashboard-tab.component';
-import { MyCollectionsComponent } from './my-collections/my-collections.component';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MaterialModule } from './../material/material.module';
 import { HelperModule } from './../helper/helper.module';
-import { MatIconModule } from '@angular/material/icon';
 import { AccountRoutingModule } from './account-routing.module';
 import { CollectionsComponent } from './collections/collections.component';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ContributionsComponent } from './contributions/contributions.component';
+import { DashboardTabComponent } from './dashboard-tab/dashboard-tab.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { EditPhotoComponent } from './edit-photo/edit-photo.component';
+import { MyAccountComponent } from './my-account/my-account.component';
+import { MyCollectionsComponent } from './my-collections/my-collections.component';
+import { PhotosComponent } from './photos/photos.component';
+import { WalletsComponent } from './wallets/wallets.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    MatIconModule,
+    MaterialModule,
     HelperModule,
     AccountRoutingModule
   ]

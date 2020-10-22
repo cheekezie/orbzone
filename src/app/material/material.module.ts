@@ -1,3 +1,5 @@
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -20,6 +22,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatMenuModule,
+    MatButtonModule
   ], 
   exports: [
     MatStepperModule,
@@ -29,6 +33,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatMenuModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule { }
