@@ -92,9 +92,40 @@ thead tr{
     color: #fff !important;
 }
   
-  th{
+th{
     font-size: 14px;
-  }
+    font-weight: 500;
+    color: #000;
+}
+tr td{
+    color: #999;
+}
+.success_badge, .cancelled_badge{
+    padding: .2rem 1.2rem;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.success_badge{
+    background: rgba(15, 197, 120, 0.2);
+    color: #129D62;
+    border: 1px solid #0FC578;
+}
+.cancelled_badge{
+    background: rgba(235, 87, 87, 0.44);
+    border: 1px solid #EB5757;
+    color: #EB5757;
+}
+.notice_content{
+    width: 26rem;
+    border-radius: 8px;
+    padding: 1rem;
+    form{
+        padding: .5rem 1rem;
+    }
+    .form-control{
+        border: 1px solid #E0E0E0 !important;
+    }
+}
   
   @media (max-width: 768px) {
       .wrapper{

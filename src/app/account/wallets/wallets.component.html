@@ -31,10 +31,10 @@
                     <h6 class="f-18 text-app-black font-weight-bold">Bank Accounts</h6>
                     <p class="f-14 mb-0">Add a bank account for withdrawals</p>
                 </div>
-                <button class="btn bg-app-primary text-white">Add Account</button>
+                <button class="btn bg-app-primary text-white" (click)="add_account = true">Add Account</button>
             </div>
             <div class="account_group flex_x_between">
-                <div class="account_item flex_x_between">
+                <div class="account_item flex_x_between" *ngFor="let item of accounts">
                     <div class="pr-3 ">
                         <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
                         <p>Sterling Bank</p>
@@ -42,22 +42,11 @@
                     </div>
                     <mat-icon>delete_forever</mat-icon>
                 </div>
-                <div class="account_item flex_x_between">
-                    <div class="pr-3">
-                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
-                        <p>Sterling Bank</p>
-                        <p class="mb-0">9998053256</p>
-                    </div>
-                    <mat-icon>delete_forever</mat-icon>
-                </div>
-                <div class="account_item flex_x_between">
-                    <div class="pr-3">
-                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
-                        <p>Sterling Bank</p>
-                        <p class="mb-0">9998053256</p>
-                    </div>
-                    <mat-icon>delete_forever</mat-icon>
-                </div>
+            </div>
+            <div class="py-5 text-center" *ngIf="accounts.length == 0 && !loader">
+                <h6 class="text-app-black f-16 fw-800 text-center">
+                  No Account record available
+                </h6>
             </div>
         </div>
         <div class="history border">
@@ -73,14 +62,44 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of history; let i = index">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Zenith Bank</td>
+                        <td>4000</td>
+                        <td>2nd Aug, 2020</td>
+                        <td>
+                            <span>Completed</span>
+                        </td>
                     </tr>
                 </tbody>
                 
             </table>
+            <div class="py-5 text-center" *ngIf="history.length == 0 && !loader">
+                <h6 class="text-app-black f-16 fw-800 text-center">
+                  No History withdrawal available
+                </h6>
+            </div>
         </div>
+    </div>
+</div>
+<div class="overlay_notice" *ngIf="add_account">
+    <div class="notice_content">
+        <div class="text-right py-3">
+            <i class="fas fa-times text-app-black"></i>
+        </div>
+        <form action="">
+            <div class="group">
+                <label for="bank" class="fw-600 text-app-black">Select Bank</label>
+                <select class="form-control" id="bank" name="account">
+                    <option value="" disabled selected>Choose account</option>
+                </select>
+            </div>
+            <div class="group">
+                <label for="numb" class="fw-600 text-app-black">Account Number</label>
+                <input type="text" class="form-control" id="numb" placeholder="00000000000">
+            </div>
+            <div class="group">
+                <input type="text" readonly class="form-control" id="name">
+            </div>
+            <button class="btn bg-app-success mt-4 w-100">Save</button>
+        </form>
     </div>
 </div>

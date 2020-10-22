@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletsComponent implements OnInit {
   history = [];
+  accounts = [];
+  add_account = false;
+  loader = false;
+  accountLoader = false;
   constructor() { }
 
   ngOnInit(): void {
