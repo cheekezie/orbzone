@@ -21,7 +21,7 @@
         <div class="filter_box cursor d-flex justify-content-end">
             <button class="f-15 text-app-black flex_center" [matMenuTriggerFor]="menu">
                 Filter By: <span class="fw-600">{{filter.duration | titlecase}}</span>
-                <mat-icon>expand_more</mat-icon>
+                <mat-icon class="cursor">expand_more</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item *ngFor="let item of options" 
