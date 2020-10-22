@@ -18,15 +18,15 @@
         </div>
     </div>
     <div class="summary">
-        <div class="filter_box cursor text-right d-flex align-items-center justify-content-end">
-            <h6 class="f-15 text-app-black" [matMenuTriggerFor]="menu">
-                Filter By: <span class="fw-600">{{filter | titlecase}}</span>
+        <div class="filter_box cursor d-flex justify-content-end">
+            <button class="f-15 text-app-black flex_center" [matMenuTriggerFor]="menu">
+                Filter By: <span class="fw-600">{{filter.duration | titlecase}}</span>
                 <mat-icon>expand_more</mat-icon>
-            </h6>
+            </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item *ngFor="let item of options" 
                 [ngClass]="{'text-app-primary': filter?.duration == item}"
-                (click)="filterAnalytics(item)">{{item}}</button>
+                (click)="filterAnalytics(item)">{{item | titlecase}}</button>
             </mat-menu>
         </div>
         <div class="cards">
@@ -39,7 +39,7 @@
             </div>
             <div class="summary_card amount">
                 <h6 class="f-32 mb-0">N{{analytics?.earning_total}}</h6>
-                <span class="f-14">{{filter | titlecase}}</span>
+                <span class="f-14">{{filter.duration | titlecase}}</span>
             </div>
         </div>
     </div>

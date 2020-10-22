@@ -139,6 +139,22 @@ $colorScheme : (
     align-items: center;
 }
 
+//FLEX STYLES
+.flex_center{
+  display: flex;
+  align-items: center;
+}
+.flex_y_center{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.flex_x_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 //LOGO
 .logo_brand img{
   width: 7.3rem;

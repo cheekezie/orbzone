@@ -5,6 +5,12 @@ $primary: #F2994A;
     align-items: center;
     justify-content: space-between;
 }
+.filter_box{
+    button{
+        border: none;
+        background: none;
+    }
+}
 .profile {
     display: flex;
     width: 48%;
