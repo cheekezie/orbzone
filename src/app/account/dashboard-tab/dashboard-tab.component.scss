@@ -29,6 +29,9 @@ $primary: #F2994A;
     }
     .btn_grey{
         height: max-content;
+        &.mobile{
+            display: none;
+        }
     }
 }
 .summary{
@@ -98,7 +101,22 @@ $primary: #F2994A;
         display: block;
     }
     .profile{
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        img{
+            height: 105px;
+            width: 105px;
+        }
+        .mail{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .btn_grey.desktop{
+            display: none;
+        }
+        .btn_grey.mobile{
+            display: block;
+            margin-top: 1rem;
+        }
     }
     .summary, .profile{
         width: 100%;
