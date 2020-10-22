@@ -23,7 +23,7 @@
     <div class="summary">
         <div class="filter_box cursor d-flex justify-content-end">
             <button class="f-15 text-app-black flex_center" [matMenuTriggerFor]="menu">
-                Filter By: <span class="fw-600">{{filter.duration | titlecase}}</span>
+                Filter By: <span class="fw-600 mx-2">{{filter.duration | titlecase}}</span>
                 <mat-icon class="cursor">expand_more</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
@@ -33,16 +33,22 @@
             </mat-menu>
         </div>
         <div class="cards">
-            <div class="summary_card d-flex image_count bg-app-altBlack align-items-center">
-                <mat-icon>photo_camera</mat-icon>
-                <div class="ml-3">
-                    <h6 class="f-32 mb-0">{{analytics?.contributions?.total}}</h6>
-                    <span class="f-14">Photos</span>
+            <div class="summary_card">
+                <div class="d-flex image_count bg-app-altBlack align-items-center">
+                    <mat-icon>photo_camera</mat-icon>
+                    <div class="ml-3">
+                        <h6 class="f-32 mb-0">{{analytics?.contributions?.total}}</h6>
+                        <span class="f-14">Photos</span>
+                    </div>
                 </div>
+                <button class="btn bg_grey text-app-black font-weight-bold">Upload Image</button>
             </div>
-            <div class="summary_card amount">
-                <h6 class="f-32 mb-0">N{{analytics?.earning_total}}</h6>
-                <span class="f-14">{{filter.duration | titlecase}}</span>
+            <div class="summary_card">
+                <div class="amount">
+                    <h6 class="f-32 mb-0">N{{analytics?.earning_total}}</h6>
+                    <span class="f-14">{{filter.duration | titlecase}}</span>
+                </div>
+                <button class="btn bg-app-black text-white font-weight-bold">Withdraw</button>
             </div>
         </div>
     </div>
