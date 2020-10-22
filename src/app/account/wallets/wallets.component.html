@@ -83,23 +83,23 @@
 <div class="overlay_notice" *ngIf="add_account">
     <div class="notice_content">
         <div class="text-right py-3">
-            <i class="fas fa-times text-app-black"></i>
+            <i class="fas fa-times f-24 text-app-black"></i>
         </div>
         <form action="">
-            <div class="group">
+            <div class="group text-left">
                 <label for="bank" class="fw-600 text-app-black">Select Bank</label>
                 <select class="form-control" id="bank" name="account">
                     <option value="" disabled selected>Choose account</option>
                 </select>
             </div>
-            <div class="group">
+            <div class="group text-left">
                 <label for="numb" class="fw-600 text-app-black">Account Number</label>
                 <input type="text" class="form-control" id="numb" placeholder="00000000000">
             </div>
             <div class="group">
                 <input type="text" readonly class="form-control" id="name">
             </div>
-            <button class="btn bg-app-success mt-4 w-100">Save</button>
+            <button class="btn bg-app-success mt-4 w-100 text-white py-2">Save</button>
         </form>
     </div>
 </div>
