@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardTabComponent implements OnInit {
   user:any;
   filter = {
-    duration: ''
+    duration: 'month'
   };
   loader = false;
   analytics:any;
