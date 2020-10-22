@@ -53,13 +53,22 @@ export class MyAccountComponent implements OnInit {
     this.profileForm.controls['location'].patchValue(user.location);
   }
   async updateImage(){
-    this.loader = true;
+    this.image_loader = true;
     let formData = new FormData();
     formData.append('email', this.file);
-    this.api.signup(formData).subscribe((res:any)=>{
+    this.api.updateImage(formData).subscribe((res:any)=>{
       this.util.succesSnackbar(res.message);
       this.image_change = false;
       this.image_loader = false;
+    },err =>(
+      this.loader = false
+    ))
+  }
+  async updateProfile(){
+    this.loader = true;
+    this.api.updateProfile(this.profileForm.value).subscribe((res:any)=>{
+      this.util.succesSnackbar(res.message);
+      this.loader = false;
     },err =>(
       this.loader = false
     ))

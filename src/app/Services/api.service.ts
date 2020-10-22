@@ -29,7 +29,18 @@ export class ApiService {
     .pipe(retry(2),tap( )
     )
   }
-
+  updateImage(data:FormData){
+    let getUrl = this.baseUrl + 'save-profile-image'
+    return this.http.get(getUrl)
+    .pipe(retry(2),tap( )
+    )
+  }
+  updateProfile(data:Object){
+    let getUrl = this.baseUrl + 'edit-profile'
+    return this.http.get(getUrl)
+    .pipe(retry(2),tap( )
+    )
+  }
   signup(data:Object){
     let getUrl = this.baseUrl + 'sign-up'
     return this.http.post(getUrl, data)
