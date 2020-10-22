@@ -1,1 +1,23 @@
-<p>photos works!</p>
+<div class="wrapper">
+    <div class="image_item img_overly" *ngFor="let item of photos">
+        <img [src]="item?.preview" alt="Orbzone stock photo" onload="this.src='../../../assets/img/unavailable-image.jpg'" 
+        onerror="this.src='../../../assets/img/unavailable-image.jpg'">
+        <div class="bottom_panel mt-auto">
+            <div class="avatar cursor d-flex align-items-center" (click)="open(item)">
+                <img [src]="item?.user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Author">
+                <span class="ml-3 f-14 text-white">{{item?.user?.surname}} {{item?.user?.firstname}}</span>
+            </div>
+            <div class="icons d-flex">
+                <mat-icon (click)="share(item)">share</mat-icon>
+                <mat-icon (click)="addCollection(item)">add_circle_outline</mat-icon>
+                <mat-icon >favorite_border</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5 text-center mb-5" *ngIf="photos.length == 0 && !loader">
+    <h6 class="text-app-black f-24 fw-800">
+      No photo or video found
+    </h6>
+</div>
+<app-shimmer *ngIf="loader"></app-shimmer>

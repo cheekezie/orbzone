@@ -1,5 +1,8 @@
+import { ShareComponent } from './../helper/share/share.component';
+import { AddCollectionComponent } from './../helper/add-collection/add-collection.component';
+import { ImagePreviewDioalgComponent } from './../helper/image-preview-dioalg/image-preview-dioalg.component';
 import { Injectable } from '@angular/core';
-import { MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -13,6 +16,7 @@ export class UtilService {
   encryptSecretKey = "diego";
   constructor(
     private router:Router,
+    private matDialog: MatDialog,
     private jwtHelper: JwtHelperService,
     private snackBar: MatSnackBar,
     private cookieService: CookieService
@@ -94,15 +98,7 @@ export class UtilService {
     this.removeUser();
     this.router.navigateByUrl("/");
   }
-  dialogConfig(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.hasBackdrop = true;
-    dialogConfig.closeOnNavigation = true;
-    return dialogConfig
-  }
-
+  
   //NAVIGATION TO SEARCH PAGE
   searchRoute(path,query){
     this.router.navigate([path], {
@@ -139,5 +135,35 @@ export class UtilService {
       //horizontalPosition: 'right',
       panelClass: [theme],
    });
+  }
+
+  //MATERIAL DIALOG HANDLES
+  dialogConfig(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = true;
+    dialogConfig.closeOnNavigation = true;
+    return dialogConfig
+  }
+  open(item: Object): void {
+    const dialogConfig = this.dialogConfig();
+    dialogConfig.data = item;
+    dialogConfig.width = '100%';
+    this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
+  }
+  addCollection(data: Object): void {
+    const dialogConfig = this.dialogConfig();
+    dialogConfig.data = data;
+    dialogConfig.disableClose = false;
+    dialogConfig.width = '38rem';
+    this.matDialog.open(AddCollectionComponent, dialogConfig);  
+  }
+  share(data: Object): void {
+    const dialogConfig = this.dialogConfig();
+    dialogConfig.data = data;
+    dialogConfig.disableClose = false;
+    dialogConfig.width = '40rem';
+    this.matDialog.open(ShareComponent, dialogConfig);  
   }
 }

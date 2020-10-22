@@ -131,10 +131,6 @@ $colorScheme : (
 .cursor{
     cursor: pointer;
 }
-.flex_center{
-    display: flex;
-    align-items: center;
-}
 
 //FLEX STYLES
 .flex_center{
@@ -150,6 +146,11 @@ $colorScheme : (
 .flex_x_center{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.flex_x_between{
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 //LOGO
@@ -245,7 +246,20 @@ $colorScheme : (
     }
   }
   
-
+  //IMAGE OVERLAY TO ADD CONTRAST
+  .img_overly{
+    position: relative;
+    min-height: 10rem;
+    &:before {
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      background-color:rgba(0,0,0,.3);
+    }
+  }
   //SHIMMER EFFECT
   .shimmer_wrapper{
     display: flex;

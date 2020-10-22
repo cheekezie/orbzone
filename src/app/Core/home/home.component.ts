@@ -78,23 +78,12 @@ export class HomeComponent implements OnInit {
     this.util.searchRoute('/search',this.search_term.trim())
   }
   open(item: Object): void {
-    const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = item;
-    dialogConfig.width = '100%';
-    this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
+    this.util.open(item)
   }
-  addCollection(data: Object): void {
-    const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = data;
-    dialogConfig.disableClose = false;
-    dialogConfig.width = '38rem';
-    this.matDialog.open(AddCollectionComponent, dialogConfig);  
+  addCollection(item:Object){
+    this.util.addCollection(item)
   }
-  share(data: Object): void {
-    const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = data;
-    dialogConfig.disableClose = false;
-    dialogConfig.width = '40rem';
-    this.matDialog.open(ShareComponent, dialogConfig);  
+  share(item:Object){
+    this.util.share(item);
   }
 }

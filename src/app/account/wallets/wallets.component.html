@@ -1,1 +1,86 @@
-<p>wallets works!</p>
+<div class="wrapper">
+    <div class="withrawal border">
+        <div class="top bg-app-black font-weight-bold">
+            <h6 class="f-18">Wallet Balance</h6>
+            <h6 class="f-24">0.00</h6>
+        </div>
+        <h6 class="font-weight-bold f-18">Withdraw Funds</h6>
+        <p class="mb-4 f-14 fw-600">Withdraw your earnings from your Orbzone account</p>
+        <form action="">
+            <div class="group">
+                <label for="amount" class="fw-600 text-app-black">Choose Account</label>
+                <select class="form-control" id="account" name="account">
+                    <option value="" disabled selected>Choose account</option>
+                </select>
+            </div>
+            <div class="group">
+                <label for="amount" class="fw-600 text-app-black">Amount</label>
+                <input type="number" class="form-control" id="email" placeholder="N">
+            </div>
+            <div class="group">
+                <label for="pwd" class="fw-600 text-app-black">Password</label>
+                <input type="password" class="form-control" id="pwd" placeholder="xxxxxxx">
+            </div>
+            <button class="btn bg-app-black w-100">Withdraw Funds</button>
+        </form>
+    </div>
+    <div class="details">
+        <div class="accounts border">
+            <div class="add_account flex_x_between mb-3">
+                <div class="pr-3">
+                    <h6 class="f-18 text-app-black font-weight-bold">Bank Accounts</h6>
+                    <p class="f-14 mb-0">Add a bank account for withdrawals</p>
+                </div>
+                <button class="btn bg-app-primary text-white">Add Account</button>
+            </div>
+            <div class="account_group flex_x_between">
+                <div class="account_item flex_x_between">
+                    <div class="pr-3 ">
+                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
+                        <p>Sterling Bank</p>
+                        <p class="mb-0">9998053256</p>
+                    </div>
+                    <mat-icon>delete_forever</mat-icon>
+                </div>
+                <div class="account_item flex_x_between">
+                    <div class="pr-3">
+                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
+                        <p>Sterling Bank</p>
+                        <p class="mb-0">9998053256</p>
+                    </div>
+                    <mat-icon>delete_forever</mat-icon>
+                </div>
+                <div class="account_item flex_x_between">
+                    <div class="pr-3">
+                        <h6 class="text-app-black f-14 font-weight-bold">Nefisat Shaibu</h6>
+                        <p>Sterling Bank</p>
+                        <p class="mb-0">9998053256</p>
+                    </div>
+                    <mat-icon>delete_forever</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div class="history border">
+            <h6 class="font-weight-bold f-18">Withdrawal History</h6>
+            <table class="table table-responsive-sm">
+                <thead>
+                    <tr>
+                    <th scope="col">Bank Account</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of history; let i = index">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</div>

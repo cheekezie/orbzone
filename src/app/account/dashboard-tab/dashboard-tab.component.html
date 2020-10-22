@@ -37,7 +37,7 @@
                 <div class="d-flex image_count bg-app-altBlack align-items-center">
                     <mat-icon>photo_camera</mat-icon>
                     <div class="ml-3">
-                        <h6 class="f-32 mb-0">{{analytics?.contributions?.total}}</h6>
+                        <h6 class="f-32 mb-0">{{analytics?.contributions?.total || '0'}}</h6>
                         <span class="f-14">Photos</span>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="summary_card">
                 <div class="amount">
-                    <h6 class="f-32 mb-0">N{{analytics?.earning_total}}</h6>
+                    <h6 class="f-32 mb-0">N{{analytics?.earning_total || '0'}}</h6>
                     <span class="f-14">{{filter.duration | titlecase}}</span>
                 </div>
                 <button class="btn bg-app-black text-white font-weight-bold">Withdraw</button>
@@ -82,8 +82,10 @@
         <app-contributions></app-contributions>
     </div>
     <div class="tab-pane" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+        <app-wallets></app-wallets>
     </div>
     <div class="tab-pane" id="photo" role="tabpanel" aria-labelledby="photo-tab">
+        <app-photos></app-photos>
     </div>
     <div class="tab-pane" id="account" role="tabpanel" aria-labelledby="account-tab">
     </div>

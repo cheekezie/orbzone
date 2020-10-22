@@ -1,0 +1,115 @@
+.wrapper{
+    padding: 1.5rem 8%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.border{
+    border: 1px solid #E0E0E0;
+}
+.group{
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+.form-control{
+    font-size: 14px;
+    color: #999;
+    padding: 1.3rem 3rem 1.3rem 1.2rem;
+    border: 1px solid #000 !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    &:active,&:focus{
+    outline-width: 0 !important;
+    outline: none !important;
+    }
+    &::placeholder{
+    color: #999;
+    }
+}
+.form-control, p{
+    color: #828282;
+        &::placeholder{
+            color: #828282;
+    }
+}
+.withrawal{
+    width: 33%;
+    padding: 2.3rem;
+    .top{
+        padding: 1.5rem;
+        border-radius: 3px;
+        margin-bottom: 1.5rem;
+    }
+    .btn{
+        padding: .7rem .8rem;
+        color: #fff;
+    }
+}
+.details{
+    width: 64%;
+}
+.history{
+    padding: 3rem 1.2rem 1rem 1.2rem;
+}
+.accounts{
+    padding: 3rem 1.2rem 2rem 1.2rem;
+    margin-bottom: 1.2rem;
+    p{
+        color: #828282;
+        margin-bottom: 0;
+    }
+    mat-icon{
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+    }
+}
+.account_group{
+    flex-wrap: wrap;
+}
+.account_item{
+    width: 32%;
+    margin-bottom: 1rem;
+    padding: .7rem 1rem;
+    background: #FBFBFB;
+    border-radius: 3px;
+}
+
+//CUSTOM TABLE STYLING
+thead tr{
+    background: #fff;
+}
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 2px solid #fff !important;
+}
+.table thead th {
+    border-bottom: 2px solid #fff !important;
+}
+
+.table thead tr{
+    color: #fff !important;
+}
+  
+  th{
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+      .wrapper{
+          display: block;
+      }
+      .account_item{
+          width: 47.5%;
+      }
+      .withrawal, .details{
+          width: 100%;
+          margin-bottom: 1.5rem;
+      }
+  }
+  @media (max-width: 599px) {
+    .account_item{
+        width: 100%;
+    }
+  }

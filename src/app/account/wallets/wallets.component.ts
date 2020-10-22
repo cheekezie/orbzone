@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wallets.component.scss']
 })
 export class WalletsComponent implements OnInit {
-
+  history = [];
   constructor() { }
 
   ngOnInit(): void {

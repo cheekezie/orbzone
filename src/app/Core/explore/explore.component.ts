@@ -38,17 +38,13 @@ export class ExploreComponent implements OnInit {
   }
 
   open(item: Object): void {
-    const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = item;
-    dialogConfig.width = '100%';
-    this.matDialog.open(ImagePreviewDioalgComponent, dialogConfig);  
+    this.util.open(item)
   }
-  addCollection(data: Object): void {
-    const dialogConfig = this.util.dialogConfig();
-    dialogConfig.data = data;
-    dialogConfig.disableClose = false;
-    dialogConfig.width = '38rem';
-    this.matDialog.open(AddCollectionComponent, dialogConfig);  
+  addCollection(item:Object){
+    this.util.addCollection(item)
+  }
+  share(item:Object){
+    this.util.share(item);
   }
 
 }
