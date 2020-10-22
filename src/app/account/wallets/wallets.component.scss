@@ -137,14 +137,16 @@ tr td{
         border: 1px solid #E0E0E0 !important;
     }
 }
-  
+@media (max-width: 968px) {
+    .account_item{
+        width: 47.5%;
+    }
+}
   @media (max-width: 768px) {
       .wrapper{
           display: block;
       }
-      .account_item{
-          width: 47.5%;
-      }
+      
       .withrawal, .details{
           width: 100%;
           margin-bottom: 1.5rem;
@@ -156,5 +158,10 @@ tr td{
     }
     .notice_content{
         width: 23rem;
+    }
+  }
+  @media (max-width: 468px) {
+    .notice_content{
+        width: 22rem;
     }
   }
