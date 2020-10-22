@@ -50,6 +50,7 @@ $primary: #F2994A;
         padding: .5rem 2rem;
         border-radius: 3px;
         margin-top: 1.5rem;
+        font-size: 14px;
     }
 }
 .image_count, .amount{
@@ -129,6 +130,11 @@ $primary: #F2994A;
         .btn_grey.mobile{
             display: block;
             margin-top: 1rem;
+        }
+    }
+    .summary_card{
+        button{
+            padding: .5rem 1.2rem;
         }
     }
     .summary, .profile{
