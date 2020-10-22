@@ -16,7 +16,7 @@ $colorScheme : (
     primary:#F2994A,
     teal: #03CFB4,
     altTeal: #D3F5D3,
-    mag-green: #A7E66C,
+    success: #27AE60,
     tertiary: #F7B924,
     danger: #ff0000,
     altBlack: #111111,
@@ -31,6 +31,9 @@ $colorScheme : (
 .bg-app-primary{
     background: color(primary) !important;
     color: #fff !important;
+}
+.bg-app-success{
+  background: color(success) !important;
 }
 .bg_grey{
   background: #EEE !important;
@@ -69,12 +72,7 @@ $colorScheme : (
 .text-app-light{
     color: #fff !important;
 }
-.text-app-teal{
-    color:color(teal)
-}
-.text-app-lightteal{
-    color: color(altTeal);
-}
+
 .text-app-dark{
   color: color(dark);
 }
