@@ -60,7 +60,7 @@ $primary: #F2994A;
     padding: .5rem 8%;
   }
   .nav-tabs .nav-item{
-    margin-right: 3rem;
+    margin-right: 2rem;
   }
   .nav-tabs .nav-link {
     display: block;
@@ -101,14 +101,17 @@ $primary: #F2994A;
         display: block;
     }
     .profile{
-        margin-bottom: 1rem;
+        margin-bottom: .5rem;
         img{
-            height: 105px;
-            width: 105px;
+            height: 120px;
+            width: 120px;
         }
         .mail{
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            span{
+                padding-left: 0 !important;
+            }
         }
         .btn_grey.desktop{
             display: none;
@@ -121,4 +124,8 @@ $primary: #F2994A;
     .summary, .profile{
         width: 100%;
     }
+
+    .nav-tabs .nav-item{
+        margin-bottom: 1.1rem;
+      }
 }
