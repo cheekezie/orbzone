@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   search_term = "";
   show_search = false;
   logged_In : boolean ;
+  notification_count = 0;
   user:any;
   constructor(
     private router: Router,

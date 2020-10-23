@@ -15,10 +15,10 @@
         <li *ngIf="logged_In" class="flex_center">
             <span class="noty">
                 <mat-icon>notifications</mat-icon>
-                <span class="badge">2</span>
+                <span class="badge">{{notification_count}}</span>
             </span>
             <img [src]="user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'"
-            alt="Orbzone Contributor" class="user_avatar" [routerLink]="['/account/join']">
+            alt="Orbzone Contributor" class="user_avatar" [routerLink]="['/account/login']">
         </li>
         <li *ngIf="!logged_In">
             <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
@@ -49,7 +49,7 @@
         <li *ngIf="logged_In" class="flex_center">
             <span class="noty">
                 <mat-icon>notifications</mat-icon>
-                <span class="badge">0</span>
+                <span class="badge">{{notification_count}}</span>
             </span>
             
             <img [src]="user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'"

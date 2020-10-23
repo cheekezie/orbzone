@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AltNavbarComponent implements OnInit {
   search_term = "";
   logged_In : boolean ;
+  notification_count = 0;
   user:any;
   constructor(
     private util: UtilService
