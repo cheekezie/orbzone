@@ -13,11 +13,16 @@ export class MyAccountComponent implements OnInit {
   loader = false;
   profileForm: FormGroup;
   passwordForm: FormGroup;
+  cardForm: FormGroup;
   image_name = "";
   image;
   file : File;
+  cards = [];
   image_loader = false;
-  image_change = false;
+  image_change = false; 
+  card_loader  = false;
+  resolved = false;
+  add_card = false;
   password_loader = false;
   constructor(
     private formbuilder: FormBuilder,
@@ -41,15 +46,23 @@ export class MyAccountComponent implements OnInit {
       dob : [''],
       gender : ['']
     }); 
+
     this.passwordForm = this.formbuilder.group({
       current_password : ['' ,Validators.required],
       new_password : ['', [Validators.required, Validators.minLength(8)]],
       vpwd : ['', [Validators.required, Validators.minLength(8)]],
-    },{validator: this.matchingfield('new_password','vpwd')})
+    },{validator: this.matchingfield('new_password','vpwd')});
+
+    this.cardForm = this.formbuilder.group({
+      number : ['' ,Validators.required],
+      expiry : ['', Validators.required],
+      cvv : ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
     let user = this.util.getUserObject();
+    this.getProfile()
     this.image = user.image;
     this.profileForm.controls['surname'].patchValue(user.surname);
     this.profileForm.controls['firstname'].patchValue(user.firstname);
@@ -121,9 +134,16 @@ export class MyAccountComponent implements OnInit {
   }
   async getProfile(){
     this.api.profile().subscribe((res:any)=>{
-      this.util.setUserObject(res.data.user)
+      this.util.setUserObject(res.data.user);
+      this.cards = res.data.cards;
       this.util.setProfileChange(res.data.user);
     })
+  }
+  addCard(){
+
+  }
+  resolveCard(){
+
   }
   onUploadProfile(event) {
     const file = (event.target as HTMLInputElement).files[0];

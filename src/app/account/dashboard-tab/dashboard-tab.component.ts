@@ -1,6 +1,6 @@
 import { ApiService } from './../../Services/api.service';
 import { UtilService } from 'src/app/Services/util.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tab',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-tab.component.scss']
 })
 export class DashboardTabComponent implements OnInit {
+  @ViewChild('walletTab', { static: true }) walletTab: ElementRef<HTMLElement>;
+  isLinear = true;
   user:any;
   filter = {
     duration: 'month'
@@ -31,6 +33,10 @@ export class DashboardTabComponent implements OnInit {
       }
     })
     this.getAnalytics();
+  }
+  openWallet(){
+    this.walletTab.nativeElement.click();
+    document.querySelector('#wallet').scrollIntoView();
   }
   filterAnalytics(val){
     this.filter.duration = val;

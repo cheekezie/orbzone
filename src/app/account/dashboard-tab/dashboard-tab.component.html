@@ -48,7 +48,8 @@
                     <h6 class="f-32 mb-0">N{{analytics?.earning_total || '0'}}</h6>
                     <span class="f-14">{{filter.duration | titlecase}}</span>
                 </div>
-                <button class="btn bg-app-black text-white font-weight-bold">Withdraw</button>
+                <button class="btn bg-app-black text-white font-weight-bold"
+                (click)="openWallet()">Withdraw</button>
             </div>
         </div>
     </div>
@@ -61,7 +62,7 @@
     </li>
     <li class="nav-item" role="presentation">
         <a class="nav-link text-app-black f-w6" id="wallet-tab" data-toggle="tab" href="#wallet"
-        role="tab" aria-controls="wallet" aria-selected="false">Wallet</a>
+        role="tab" aria-controls="wallet" aria-selected="false" #walletTab>Wallet</a>
     </li>
     <li class="nav-item" role="presentation">
         <a class="nav-link text-app-black f-w6" id="photo-tab" data-toggle="tab" href="#photo"
@@ -82,6 +83,7 @@
         <app-contributions></app-contributions>
     </div>
     <div class="tab-pane" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+        <div id="wallet"></div>
         <app-wallets></app-wallets>
     </div>
     <div class="tab-pane" id="photo" role="tabpanel" aria-labelledby="photo-tab">

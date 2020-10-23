@@ -84,27 +84,83 @@ a.nav-link{
 h6.mobile{
     display: none;
 }
-@media (max-width: 768px) {
+
+//CARD TAB
+.debit_card{
+    background: rgba(242, 153, 74, 0.1);
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    padding: .75rem .7rem .75rem 2rem;
+    span{
+        color: #381A51;
+        padding: 0 1rem;
+    }
+    mat-icon{
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+    }
+    img{
+        height: 34px;
+        width: 34px;
+    }
+}
+.notice_content{
+    width: 26rem;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    form{
+        padding: .5rem 1.2rem;
+    }
+    .btn{
+        padding: .7rem .8rem;
+    }
+    .form-control{
+        border: 2px solid #8F92A1 !important;
+    }
+    .master_card{
+        border: 1px solid #EBEDF8;
+        border-radius: 16px;
+        padding: 2rem 1.8rem;
+        text-align: center;
+    }
+    .images img{
+        width: 8rem;
+    }
+    .prefix{
+        right: .5rem;
+        left: initial;
+    }
+}
+@media (max-width: 968px) {
     .wrapper{
         display: block;
     }
-    h6.dekstop{
-        display: none;
+    h6.desktop{
+        display: none !important;
     }
     h6.mobile{
-        display: block;
+        display: block !important;
         margin-bottom: 1rem;
     }
     .nav-tabs{
         width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         margin-bottom: 1.5rem;
     }
+    .nav-item{
+        margin-right: 1.5rem;
+    }
+    // .first_item{
+    //     margin-left: 0 !important;
+    // }
     .tab-content{
         width: 100%;
         padding-left: 0;
     }
     form{
-        padding-left: 2rem;
+        padding-left: 1.5rem;
         width: auto;
     }
     .profile_image{
@@ -118,15 +174,16 @@ h6.mobile{
 @media (max-width: 599px) {
     .profile_image{
         display: flex;
+        align-items: center;
         img{
-            padding-right: 1rem;
+            margin-right: 1rem;
         }
     }
     .profile_group{
-        display: flex;
+        display: block;
     }
     form{
-        padding-left: 5rem;
+        padding-left: 0;
         width: auto;
     }
 }

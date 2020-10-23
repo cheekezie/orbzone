@@ -45,7 +45,7 @@
                         <p>{{item?.account_bank}}</p>
                         <p class="mb-0">{{item?.account_number}}</p>
                     </div>
-                    <mat-icon (click)="delete(item?.accountid)">delete_forever</mat-icon>
+                    <mat-icon (click)="delete(item?.accountid)" class="text-app-grey">delete_forever</mat-icon>
                 </div>
             </div>
             <div class="py-5 text-center" *ngIf="accounts.length == 0 && !loader">
@@ -79,7 +79,7 @@
             </table>
             <div class="py-5 text-center" *ngIf="withdrawals.length == 0 && !loader">
                 <h6 class="text-app-black f-16 fw-800 text-center">
-                  No History withdrawal available
+                  No withdrawal History available
                 </h6>
             </div>
         </div>

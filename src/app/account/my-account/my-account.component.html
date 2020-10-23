@@ -3,7 +3,7 @@
     <h6 class="text-app-black fw-800 mobile">Account settings</h6>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <h6 class="text-app-black fw-800 desktop">Account settings</h6>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item first_item" role="presentation">
             <a class="nav-link active text-app-black" id="profile-tab" 
             data-toggle="tab" href="#profile"
             role="tab" aria-controls="profile" aria-selected="true">Edit Proflie</a>
@@ -121,17 +121,17 @@
                     <div class="group col-md-6 text-left">
                         <label for="npwd" class="fw-600 text-app-black">Current Password</label>
                         <input type="password" class="form-control" id="npwd" formControlName="current_password"
-                        placeholder="xxxxxxx">
+                        placeholder="********">">
                     </div>
                     <div class="group col-md-6 text-left">
                         <label for="npwd" class="fw-600 text-app-black">New Password (min. 8 char)</label>
                         <input type="password" class="form-control" id="npwd" formControlName="new_password"
-                        placeholder="xxxxxxx">
+                        placeholder="********">">
                     </div>
                     <div class="group col-md-6 text-left">
                         <label for="vpwd" class="fw-600 text-app-black">Confirm New Password</label>
                         <input type="password" class="form-control" id="vpwd" formControlName="vpwd"
-                        placeholder="xxxxxxx">
+                        placeholder=" ********">
                         <small class="error" *ngIf="passwordForm.errors?.mismatchedFields && passwordForm.get('vpwd').touched">
                             Passwords do not match!
                         </small>
@@ -151,7 +151,80 @@
             </form>
         </div>
         <div class="tab-pane" id="card" role="tabpanel" aria-labelledby="card-tab">
-            <div>card</div>
+            <h6 class="text-app-black fw-800">Debit Cards</h6>
+            <div class="row" *ngFor="let item of cards">
+                <div class="debit_card col-md-6 flex_x_between">
+                    <img src="../../../assets/img/m_card.png" alt="">
+                    <span> **** **** **** 4902</span>
+                    <mat-icon class="text-app-grey cursor">delete_forever</mat-icon>
+                </div>
+            </div>
+            <div class="py-4 text-center col-md-6" *ngIf="cards.length == 0">
+                <h6 class="text-app-black f-16 fw-800 text-center">
+                  No Cards available
+                </h6>
+            </div>
+            <div class="row">
+                <div class="group col-md-6">
+                    <button class="btn bg-app-black w-100 text-white"
+                    (click)="add_card = true">Add payment method   
+                </button>
+            </div>
+            
         </div>
+    </div>
+</div>
+
+<!-- CARD ADDITION MODAL -->
+<div class="overlay_notice" *ngIf="add_card">
+    <div class="notice_content">
+        <div class="text-right pt-3 mb-2">
+            <i class="fas fa-times f-24 text-app-black cursor" 
+            (click)="add_card = false"></i>
+        </div>
+        <h6 class="text-center font-weight-bold f-22 text-app-black mb-2">
+            Add Bank Account
+        </h6>
+        <div class="images mb-4 flex_x_center">
+            <div class="master_card">
+                <img src="../../../assets/img/m_card.png" alt="">
+            </div>
+            <img src="../../../assets/img/visa_trans.png" class="visa ml-3" alt="">
+        </div>
+        <form [formGroup]="accountForm">
+            <div class="row">
+                <div class="group text-left col-12">
+                    <label for="numb" class="fw-600 text-app-black">Input Visa Card Numbers</label>
+                    <input type="text" class="form-control" id="numb" 
+                    formControlName="number" placeholder="00000000000">
+                    <img class="prefix" src="../../../assets/icons/card.png">
+                </div>
+                <div class="group text-left col-md-6">
+                    <label for="exp" class="fw-600 text-app-black">Exp Date</label>
+                    <div class="position-relative">
+                        <input type="text" class="form-control" id="exp" 
+                        formControlName="expiry" placeholder="0/00/0000">
+                        <img class="prefix" src="../../../assets/icons/date.png">
+                    </div>
+                </div>
+                <div class="group text-left col-md-6">
+                    <label for="cvv" class="fw-600 text-app-black">CVV Code</label>
+                    <div class="position-relative">
+                        <input type="text" class="form-control" id="cvv" 
+                        formControlName="cvv" placeholder="Code">
+                        <img class="prefix" src="../../../assets/icons/cvv.png">
+                    </div>
+                </div>
+            </div>
+            <button class="btn bg-app-success mt-4 w-100 text-white" *ngIf="!resolved"
+                [disabled]="!accountForm.valid || card_loader" (click)="resolveCard()">
+                Verify Card 
+                <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="card_loader"></i>
+            </button>
+            <button class="btn bg-app-success mt-4 w-100 text-white" 
+            (click)="addCard()" *ngIf="resolved">
+                Save <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="card_loader"></i>
+            </button>
+        </form>
     </div>
 </div>
