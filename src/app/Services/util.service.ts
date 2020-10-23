@@ -25,9 +25,14 @@ export class UtilService {
 
   private gallerySubject = new BehaviorSubject<any>('');
   gallery = this.gallerySubject.asObservable();
+  private profileSubject = new BehaviorSubject<any>('');
+  prifleChange = this.profileSubject.asObservable();
 
-  storeTeachers(data){
+  storeGallery(data){
     this.gallerySubject.next(data);
+  }
+  setProfileChange(data){
+    this.profileSubject.next(data);
   }
 
   setUserObject(userObject) {

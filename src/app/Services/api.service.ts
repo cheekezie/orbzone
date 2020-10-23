@@ -31,14 +31,20 @@ export class ApiService {
   }
   updateImage(data:FormData){
     let getUrl = this.baseUrl + 'save-profile-image'
-    return this.http.get(getUrl)
-    .pipe(retry(2),tap( )
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
     )
   }
   updateProfile(data:Object){
     let getUrl = this.baseUrl + 'edit-profile'
-    return this.http.get(getUrl)
-    .pipe(retry(2),tap( )
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
+    )
+  }
+  updatePassword(data:Object){
+    let getUrl = this.baseUrl + 'change-password'
+    return this.http.post(getUrl, data)
+    .pipe(tap( )
     )
   }
   signup(data:Object){

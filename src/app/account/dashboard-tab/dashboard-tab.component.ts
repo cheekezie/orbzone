@@ -25,6 +25,11 @@ export class DashboardTabComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.util.getUserObject();
+    this.util.prifleChange.subscribe(data=>{
+      if(data){
+        this.user = data;
+      }
+    })
     this.getAnalytics();
   }
   filterAnalytics(val){

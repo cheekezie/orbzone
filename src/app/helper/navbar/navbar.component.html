@@ -13,7 +13,15 @@
         <li [routerLink]="['explore']" routerLinkActive="router_active" >Explore</li>
         <li>Contributors</li>
         <li>Upload</li>
-        <li>
+        <li *ngIf="logged_In" class="flex_center">
+            <span class="noty">
+                <mat-icon>notifications</mat-icon>
+                <span class="badge">2</span>
+            </span>
+            <img [src]="user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'"
+            alt="Orbzone Contributor" class="user_avatar" [routerLink]="['/account/join']">
+        </li>
+        <li *ngIf="!logged_In">
             <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
         </li>
     </div>
@@ -39,7 +47,15 @@
         <li [routerLink]="['/explore']" routerLinkActive="router_active" >Explore</li>
         <li>Contributors</li>
         <li>Upload</li>
-        <li>
+        <li *ngIf="logged_In" class="flex_center">
+            <span class="noty">
+                <mat-icon>notifications</mat-icon>
+                <span class="badge">0</span>
+            </span>
+            <img [src]="user?.image" onerror="this.src='../../../assets/img/user-icon.jpg'"
+            alt="Orbzone Contributor" class="user_avatar" [routerLink]="['/account/login']">
+        </li>
+        <li *ngIf="!logged_In">
             <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
         </li>
     </div>

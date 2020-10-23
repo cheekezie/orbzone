@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    if(this.util.isLoggedIn()){
+      this.router.navigate(['/user'])
+    }
   }
   async login(){
     this.loader = true;

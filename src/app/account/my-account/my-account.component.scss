@@ -1,64 +1,131 @@
 .wrapper{
+    padding: 0 10%;
     display: flex;
 }
 .nav-tabs{
-    width: 25%;
+    width: 17%;
     border-bottom: none;
+    display: block;
     a{
         text-decoration: underline;
     }
 }
 .tab-content{
-    width: 75%;
-    padding-left: 5rem;
+    width: 83%;
+    padding-left: 2.7rem;
 }
 .btn{
-    padding: .7rem .8rem;
+    padding: .7rem .9rem;
 }
 .profile_image{
+    .change_pic{
+        color: #B2B2B2;
+        text-decoration: underline;
+    }
     img{
         height: 162px;
         width: 162px;
         border-radius: 50%;
         object-fit: cover;
+        margin-bottom: 1rem;
     }
 }
-form{
-    padding-left: 5rem;
-}
+
 .form-control{
     font-size: 14px;
-    color: #999;
-    padding: 1.3rem 2rem;
+    color: #BDBDBD !important;
+    padding: 1.3rem .5rem;
     border: 1px solid #000;
     &::placeholder{
-    color: #999;
+    color: #BDBDBD;
     }
 }
-.portfolio{
-    padding: 1.3rem 4rem 1.3 2rem;
+.portfolio .form-control{
+    padding: 1.3rem .5rem 1.3rem 3.2rem !important;
 }
-.ig, .twitter{
-    padding: 1.3rem 3rem 1.3 2rem;
+.ig .form-control, .twitter .form-control{
+    padding: 1.3rem .5rem 1.3rem 1.5rem !important;
 }
 .prefix{
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: #999;
+    top: .7rem;
+    font-size: 14px;
+    left: .5rem;
+    color: #BDBDBD;
+}
+.nav-tabs ul{
+    padding: 0;
+}
+.tab-pane h6{
+    margin-bottom: 2rem;
 }
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   color: #000;
   font-weight: 800;
+  background: none !important;
+  border: none !important;
 }
 
-@media (max-width: 599px) {
+.profile_group{
+    display: flex;
+}
+form{
+    padding-left: 6rem;
+    width: auto;
+}
+.password form{
+    padding-left: 0;
+}
+a.nav-link{
+    padding-left: 0;
+}
+h6.mobile{
+    display: none;
+}
+@media (max-width: 768px) {
+    .wrapper{
+        display: block;
+    }
+    h6.dekstop{
+        display: none;
+    }
+    h6.mobile{
+        display: block;
+        margin-bottom: 1rem;
+    }
+    .nav-tabs{
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    .tab-content{
+        width: 100%;
+        padding-left: 0;
+    }
+    form{
+        padding-left: 2rem;
+        width: auto;
+    }
     .profile_image{
         margin-bottom: .5rem;
         img{
             height: 120px;
             width: 120px;
         }
+    }
+}
+@media (max-width: 599px) {
+    .profile_image{
+        display: flex;
+        img{
+            padding-right: 1rem;
+        }
+    }
+    .profile_group{
+        display: flex;
+    }
+    form{
+        padding-left: 5rem;
+        width: auto;
     }
 }

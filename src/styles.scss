@@ -21,6 +21,7 @@ $colorScheme : (
     danger: #ff0000,
     altBlack: #111111,
     alt: #fd976629,
+    grey_color: #B2B2B2,
     text-black: #000000,
     dark: #6D6D6D,
 );
@@ -86,7 +87,7 @@ $colorScheme : (
   color: color(text-black);
 }
 .text-app-grey{
-  color: color(text-dark) !important;
+  color: color(grey_color) !important;
   letter-spacing: -0.500211px;
 }
 
@@ -170,6 +171,10 @@ $colorScheme : (
   outline-width: 0 !important;
   outline: none !important;
   }
+}
+select.form-control{
+  padding: .7rem 1.2rem !important;
+  height: 2.8rem !important;
 }
 //LOGO
 .logo_brand img{
@@ -396,6 +401,13 @@ $colorScheme : (
     background-color: green;
     color: #fff;
   }
+
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link {
+  background: none !important;
+  border: none !important;
+  color: #000;
+}
 
   //CUSTOM POPUP
   .overlay_notice{

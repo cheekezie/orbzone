@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   url = "";
   search_term = "";
   show_search = false;
+  logged_In : boolean ;
+  user:any;
   constructor(
     private router: Router,
     private util: UtilService
@@ -20,6 +22,20 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.url = this.router.url;
+    this.checkLogin();
+    this.util.prifleChange.subscribe(data=>{
+      if(data){
+        this.user = data;
+      }
+    })
+  }
+  checkLogin(){
+    if(this.util.isLoggedIn()){
+      this.user = this.util.getUserObject()
+      this.logged_In = true;
+      return
+    }
+    this.logged_In = false
   }
   //adding condition style to navbar on scroll
   @HostListener("window:scroll", [])

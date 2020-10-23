@@ -1,6 +1,8 @@
+
 <div class="wrapper">
+    <h6 class="text-app-black fw-800 mobile">Account settings</h6>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <h6 class="text-app-black fw-800">Account settings</h6>
+        <h6 class="text-app-black fw-800 desktop">Account settings</h6>
         <li class="nav-item" role="presentation">
             <a class="nav-link active text-app-black" id="profile-tab" 
             data-toggle="tab" href="#profile"
@@ -15,6 +17,7 @@
             <a class="nav-link text-app-black" id="card-tab" data-toggle="tab" href="#card"
             role="tab" aria-controls="card" aria-selected="false">Debit Cards</a>
         </li>
+           
     </ul>
 
     <div class="tab-content">
@@ -22,29 +25,31 @@
             <h6 class="text-app-black fw-800">Edit profile</h6>
             <div class="profile_group">
                 <div class="profile_image">
-                    <img [src]="image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone author">
-                    <input type="file" style="display: none;" #uploadFile
-                    accept=".jpg, .jpeg, .png" (change)="onUploadProfile($event)"/>
-                    <br> 
-                    <span class="text-center" (click)="uploadFile.click()">
-                        Change profile image
-                    </span> 
-                    <br> <span class="text-app-grey f-14">{{image_name}}</span>
-                    <br> 
-                    <span class="btn bg-app-black" *ngIf="image_change">Save Image
-                        <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="image_loader"></i>
-                    </span>
+                    <img [src]="image" onerror="this.src='../../../assets/img/user-icon.jpg'" alt="Orbzone Contributor">                
+                    <div>
+                        <input type="file" style="display: none;" #uploadFile
+                        accept=".jpg, .jpeg, .png" (change)="onUploadProfile($event)"/>
+                        <span class="text-center change_pic f-14 cursor" (click)="uploadFile.click()">
+                            Change profile image
+                        </span> 
+                        <br> 
+                        <span class="btn bg-app-black text-white" 
+                        *ngIf="image_change" (click)="updateImage()">Save Image
+                            <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="image_loader"></i>
+                        </span>
+                    </div>
                 </div>
                 <form [formGroup]="profileForm">
                     <div class="row">
                         <div class="group col-md-6 text-left">
-                            <label for="fname" class="fw-600 text-app-black">First Name</label>
-                            <input type="text" class="form-control" id="fname" formControlName="firstname">
-                        </div>
-                        <div class="group col-md-6 text-left">
-                            <label for="lname" class="fw-600 text-app-black">Last Name</label>
+                            <label for="lname" class="fw-600 text-app-black">First Name</label>
                             <input type="text" class="form-control" id="lname" formControlName="surname">
                         </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="fname" class="fw-600 text-app-black">Last Name</label>
+                            <input type="text" class="form-control" id="fname" formControlName="firstname">
+                        </div>
+                        
                         <div class="group col-md-6 text-left">
                             <label for="email" class="fw-600 text-app-black">Email Address</label>
                             <input type="text" class="form-control" id="email" formControlName="email">
@@ -54,9 +59,20 @@
                             <input type="text" class="form-control" id="phone" formControlName="phone">
                         </div>
                         <div class="group col-md-6 text-left">
-                            <label for="pot" class="fw-600 text-app-black">Peersonalsite/portfolio</label>
+                            <label for="dob" class="fw-600 text-app-black">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" formControlName="dob">
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="gender" class="fw-600 text-app-black">Gender</label>
+                            <select class="form-control" id="account" name="account" formControlName="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="group col-md-6 text-left">
+                            <label for="pot" class="fw-600 text-app-black">Peersonal site/portfolio</label>
                             <div class="position-relative portfolio"> 
-                                <input type="text" class="form-control" id="pot" formControlName="portfolio">
+                                <input type="text" class="form-control" name="port" id="pot" formControlName="portfolio">
                                 <span class="prefix">www.</span>
                             </div>
                         </div>
@@ -86,23 +102,56 @@
                             <label for="address" class="fw-600 text-app-black">Address</label>
                             <input type="text" class="form-control" id="address" formControlName="address">
                         </div>
-                        <div class="group col-md-12 text-left">
+                        <div class="group col-12 text-left d-flex flex-column">
                             <label for="bio" class="fw-600 text-app-black">Bio</label>
-                            <textarea name="bio" id="" cols="30" rows="10" formControlName="bio"></textarea>
+                            <textarea class="form-control" name="bio" id="" cols="30" rows="3" formControlName="bio"></textarea>
                         </div>
                     </div>
-                    <button class="btn bg-app-black w-100"
-                        [disabled]="loader">Update account
+                    <button class="btn bg-app-black w-100 text-white"
+                        [disabled]="loader" (click)="updateProfile()">Update account
                         <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="loader"></i>
                     </button>
                 </form>
             </div>
         </div>
-        <div class="tab-pane" id="password" role="tabpanel" aria-labelledby="password-tab">
-            
+        <div class="tab-pane password" id="password" role="tabpanel" aria-labelledby="password-tab">
+            <h6 class="text-app-black fw-800">Change Password</h6>
+            <form [formGroup]="passwordForm">
+                <div class="row">
+                    <div class="group col-md-6 text-left">
+                        <label for="npwd" class="fw-600 text-app-black">Current Password</label>
+                        <input type="password" class="form-control" id="npwd" formControlName="current_password"
+                        placeholder="xxxxxxx">
+                    </div>
+                    <div class="group col-md-6 text-left">
+                        <label for="npwd" class="fw-600 text-app-black">New Password (min. 8 char)</label>
+                        <input type="password" class="form-control" id="npwd" formControlName="new_password"
+                        placeholder="xxxxxxx">
+                    </div>
+                    <div class="group col-md-6 text-left">
+                        <label for="vpwd" class="fw-600 text-app-black">Confirm New Password</label>
+                        <input type="password" class="form-control" id="vpwd" formControlName="vpwd"
+                        placeholder="xxxxxxx">
+                        <small class="error" *ngIf="passwordForm.errors?.mismatchedFields && passwordForm.get('vpwd').touched">
+                            Passwords do not match!
+                        </small>
+                    </div>
+                    
+                    </div>
+                    <div class="row">
+                        <div class="group col-md-6">
+                            <button class="btn bg-app-black w-100 text-white"
+                            [disabled]="!passwordForm.valid || password_loader" 
+                            (click)="updatePassword()">Change Password
+                            <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="password_loader"></i>
+                        </button>
+                    </div>
+                </div>
+                
+            </form>
         </div>
         <div class="tab-pane" id="card" role="tabpanel" aria-labelledby="card-tab">
-            
+            <div>card</div>
         </div>
     </div>
 </div>
