@@ -107,9 +107,59 @@ $primary: #F2994A;
         border: none !important;
       }
   }
-  
+
+//UPLOAD DIALOG
+.upload_dialog{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9;
+    overflow-y: auto;
+    background: rgba(0,0,0,.3) !important;
+    display: flex;
+    justify-content: center;
+    .panel{
+        width: 93%;
+        margin-top: 2rem;
+        border-radius: 3px;
+        background: #fff;
+        padding: 2rem 8% 4rem 8%;
+        height: max-content;
+    }
+    img{
+        height: max-content;
+    }
+    .text{
+        padding: 2rem 8rem 0 0;
+    }
+    .top{
+        margin-bottom: 5rem;
+    }
+    button{
+        color: #000;
+        background: #F9F9F9;
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: -.3rem;
+        padding: .7rem 1.2rem;
+    }
+    .bottom .col-md-4{
+        padding-right: 1.5rem;
+    }
+}
 
 @media (max-width: 968px) {
+    .upload_dialog{
+        .panel{
+            padding: 2rem 8%;
+        }
+        .text{
+            padding: 2rem 5rem 0 0;
+        }
+    }
     .main{
         display: block;
         padding: 8rem 5% 1.5rem 5%;

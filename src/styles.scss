@@ -92,6 +92,9 @@ $colorScheme : (
 }
 
 //CUSTOM TYPOGRAPHY
+.f-12{
+  font-size: 12px;
+}
 .f-14{
     font-size: 14px;
 }
@@ -159,6 +162,9 @@ $colorScheme : (
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.text_underline{
+  text-decoration: underline;
 }
 .group{
   position: relative;
@@ -386,7 +392,8 @@ select.form-control{
     max-width: 100% !important;
     width: 100% !important;
   }
-  .error-snackbar,.success-snackbar,.warning-snackbar{
+  .error-snackbar,.success-snackbar,
+  .warning-snackbar, .black-snackbar{
     z-index: 99999999999999 !important;
   }
   .error-snackbar, .error-snackbar .mat-simple-snackbar-action{
@@ -400,6 +407,10 @@ select.form-control{
   .success-snackbar, .success-snackbar .mat-simple-snackbar-action{
     background-color: green;
     color: #fff;
+  }
+  .black-snackbar, .black-snackbar .mat-simple-snackbar-action{
+    background-color: #000;
+    color: rgb(245, 115, 9);
   }
 
   .nav-tabs .nav-item.show .nav-link,

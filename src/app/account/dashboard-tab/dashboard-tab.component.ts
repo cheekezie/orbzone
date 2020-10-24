@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from './../../Services/api.service';
 import { UtilService } from 'src/app/Services/util.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -19,10 +20,13 @@ export class DashboardTabComponent implements OnInit {
   options = [
     'day','week',
     'month','year','all'
-  ]
+  ];
+  disclaimer = false;
+  upload_dialog = false;
   constructor(
     private util: UtilService,
-    private api: ApiService
+    private api: ApiService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +38,7 @@ export class DashboardTabComponent implements OnInit {
     })
     this.getAnalytics();
   }
+
   openWallet(){
     this.walletTab.nativeElement.click();
     document.querySelector('#wallet').scrollIntoView();
@@ -49,7 +54,16 @@ export class DashboardTabComponent implements OnInit {
       this.loader = false
     },err =>(
       this.loader = false
-    ))
-    
+    )) 
+  }
+  addImage(){
+    if(this.disclaimer == false){
+      this.snackBar.open('Terms |', 'Agree to the terms/conditions to continue', {
+        duration: 8000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right',
+        panelClass: ['black-snackbar'],
+     });
+    }
   }
 }

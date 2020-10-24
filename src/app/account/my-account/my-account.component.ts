@@ -75,7 +75,7 @@ export class MyAccountComponent implements OnInit {
     this.profileForm.controls['instagram'].patchValue(user.instagram || '');
     this.profileForm.controls['portfolio'].patchValue(user.portfolio || '');
     this.profileForm.controls['location'].patchValue(user.location || '');
-    this.profileForm.controls['dob'].patchValue(this.revertDOB(user.dob) || '');
+    this.profileForm.controls['dob'].patchValue(this.revertDOB(user.dob));
     this.profileForm.controls['gender'].patchValue(user.gender || '');
   }
 
@@ -109,7 +109,10 @@ export class MyAccountComponent implements OnInit {
     return ''
   }
   revertDOB(dob:any){
-    return new Date(dob.split('-').reverse().join('/'))
+    if(dob){
+      return new Date(dob.split('-').reverse().join('/'))
+    }
+    return ''
   }
   async updateProfile(){
     this.loader = true;

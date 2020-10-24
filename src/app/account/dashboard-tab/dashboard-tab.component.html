@@ -41,7 +41,8 @@
                         <span class="f-14">Photos</span>
                     </div>
                 </div>
-                <button class="btn bg_grey text-app-black font-weight-bold">Upload Image</button>
+                <button class="btn bg_grey text-app-black font-weight-bold" 
+                (click)="upload_dialog = true">Upload Image</button>
             </div>
             <div class="summary_card">
                 <div class="amount">
@@ -97,3 +98,58 @@
     </div>
 </div>
 <app-footer></app-footer>
+
+<div class="upload_dialog" *ngIf="upload_dialog">
+    <div class="panel">
+        <div class="text-right mb-4">
+            <i class="fas fa-times f-20 text-app-black cursor" 
+            (click)="upload_dialog = false"></i>
+        </div>
+        <div class="row top">
+            <div class="text col-md-8 mb-0 mb-md-3">
+                <h6 class="fw-800 f-36 text-app-black mb-5">Hello {{user?.firstname}}</h6>
+                <p class="text-app-black fw-600 f-16 mb-4">
+                    Thanks for contributing on Orbzone! To increase 
+                    your chance ofyour picture being evaluated easily, 
+                    please ensure that your photo meet our submission guidelines.
+                </p>
+                <p class="text-app-altBlack">
+                    <span class="f-12">Note: Every photo on orbzone is published using a </span> 
+                    <span class="text_underline f-12 cursor">Commercial Licensce</span> which allows  
+                    <span class="font-weight-bold f-12">people to purchase photos and use it for any purpose.</span>
+                    <span class="text_underline f-12 cursor"> Learn more. </span>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="../../../assets/img/Rectangle 131.png" alt="" class="img-fluid">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4 d-flex">
+                <img src="../../../assets/icons/image_icon.png" alt="" class="mr-3">
+                <p class="f-12 text-altBlack">Only upload high quality photos. For a standard
+                    landscape orientation photo, 5 megapixels is at
+                    least 2500 by 2500 pixels in size.
+                </p>
+            </div>
+            <div class="col-md-4 d-flex">
+                <img src="../../../assets/icons/appreciate__icon.png" alt="" class="mr-3">
+                <p class="f-12 text-app-altBlack">
+                    We appreciate clear, original photos that are not 
+                    over edited and do not contain negative imagery
+                </p>
+            </div>
+            <div class="col-md-4 d-flex">
+                <img src="../../../assets/icons/notification.png" alt="" class="mr-3">
+                <p class="f-12 text-app-altBlack">
+                    You must own the rights to any photo you share on Orbzone. 
+                     You can read more about this in our Terms
+                </p>
+            </div>
+        </div>
+        <div class="bottom d-flex justify-content-end align-items-center">
+            <mat-checkbox [(ngModel)]="disclaimer">I understand and agree</mat-checkbox>
+            <button class="btn f-14 ml-3"  (click)="addImage()">Upload Image</button>
+        </div>
+    </div>
+</div>
