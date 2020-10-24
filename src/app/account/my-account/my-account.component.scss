@@ -115,20 +115,27 @@ h6.mobile{
     .btn{
         padding: .7rem .8rem;
     }
+    h6{
+        margin-bottom: 1.8rem;
+    }
     .form-control{
         border: 2px solid #8F92A1 !important;
     }
     .master_card{
         border: 1px solid #EBEDF8;
         border-radius: 16px;
-        padding: 2rem 1.8rem;
+        padding: .8rem 2rem;
         text-align: center;
     }
-    .images img{
-        width: 8rem;
+    .images {
+        margin-bottom: 3.2rem;
+        img{
+            width: 4.5rem;
+        }
     }
     .prefix{
         right: .5rem;
+        top: .9rem;
         left: initial;
     }
 }

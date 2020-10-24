@@ -182,22 +182,24 @@
             <i class="fas fa-times f-24 text-app-black cursor" 
             (click)="add_card = false"></i>
         </div>
-        <h6 class="text-center font-weight-bold f-22 text-app-black mb-2">
+        <h6 class="text-center font-weight-bold f-22 text-app-black">
             Add Bank Account
         </h6>
-        <div class="images mb-4 flex_x_center">
+        <div class="images flex_x_center">
             <div class="master_card">
                 <img src="../../../assets/img/m_card.png" alt="">
             </div>
             <img src="../../../assets/img/visa_trans.png" class="visa ml-3" alt="">
         </div>
-        <form [formGroup]="accountForm">
+        <form [formGroup]="cardForm">
             <div class="row">
                 <div class="group text-left col-12">
                     <label for="numb" class="fw-600 text-app-black">Input Visa Card Numbers</label>
-                    <input type="text" class="form-control" id="numb" 
-                    formControlName="number" placeholder="00000000000">
-                    <img class="prefix" src="../../../assets/icons/card.png">
+                    <div class="position-relative">
+                        <input type="text" class="form-control" id="numb" 
+                        formControlName="number" placeholder="00000000000">
+                        <img class="prefix" src="../../../assets/icons/card.png">
+                    </div>
                 </div>
                 <div class="group text-left col-md-6">
                     <label for="exp" class="fw-600 text-app-black">Exp Date</label>
@@ -217,7 +219,7 @@
                 </div>
             </div>
             <button class="btn bg-app-success mt-4 w-100 text-white" *ngIf="!resolved"
-                [disabled]="!accountForm.valid || card_loader" (click)="resolveCard()">
+                [disabled]="!cardForm.valid || card_loader" (click)="resolveCard()">
                 Verify Card 
                 <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="card_loader"></i>
             </button>
