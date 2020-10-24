@@ -45,10 +45,10 @@ export class NavbarComponent implements OnInit {
     if (number > 50) {
       this.navViewPort = true;
     }
-    if (number > 350) {
+    if (number > 280) {
       this.show_search = true;
     }
-    if (number < 350) {
+    if (number < 280) {
       this.show_search = false;
     }
     if (number <= 50){

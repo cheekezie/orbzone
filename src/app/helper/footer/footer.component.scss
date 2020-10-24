@@ -1,0 +1,74 @@
+footer{
+    padding: 3rem 8.5% 1.5rem 8.5%;
+    margin-top: 8rem;
+}
+hr{
+    border-top: 1px solid #2F2F31;
+}
+.f-13{
+    font-size: 13px;
+}
+.footer_links{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    .profile{
+        width: 30%;
+        color: #fff;
+        p{
+            margin-bottom: 1.5rem;
+        }
+        img{
+            width: 8rem;
+            margin-bottom: 2rem;
+        }
+    }
+    h6{
+        margin-bottom: 1.5rem;
+        color: #fff;
+    }
+    li{
+        cursor: pointer;
+        list-style: none;
+        margin-bottom: 1rem;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        letter-spacing: -0.500211px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .links{
+        width: 20%;
+    }
+}
+.w-68{
+    width: 68%;
+}
+.fab{
+    cursor: pointer;
+}
+.fa-twitter{
+    color: #2B78FF;
+}
+@media (max-width: 768px) {
+    .footer_links{
+        padding: 7%;
+        flex-wrap: wrap;
+        .profile{
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .links{
+            width: 32%;
+        }
+    }
+}
+@media (max-width: 599px) {
+    .footer_links{
+        display: block;
+        .profile, .links{
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+}

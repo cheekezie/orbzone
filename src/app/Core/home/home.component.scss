@@ -87,6 +87,7 @@ $primary: #F2994A;
     align-items: center;
     justify-content: center;
     z-index: 99999;
+    overflow-y: auto;
     background: rgba(0,0,0,.3) !important;
     .panel{
         width: 38rem;
@@ -149,10 +150,14 @@ $primary: #F2994A;
     }
     .notification{
         .panel{
-            width: 24rem;
+            width: 22rem;
+            padding: 1rem 1.2rem 4rem 1.2rem;
         }
         .content{
             padding: .5rem;
+        }
+        .btn{
+            padding: .37rem .5rem;
         }
     }
 }
