@@ -11,7 +11,7 @@
     <div class="links flex_center desktop_view">
         <li [routerLink]="['/explore']" routerLinkActive="router_active" >Explore</li>
         <li>Contributors</li>
-        <li>Upload</li>
+        <li (click)="upload()">Upload</li>
         
         <li *ngIf="!logged_In">
             <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
@@ -48,7 +48,7 @@
     <div class="mobile_links mt-5">
         <li [routerLink]="['explore']" routerLinkActive="router_active" >Explore</li>
         <li>Contributors</li>
-        <li>Upload</li>
+        <li (click)="upload()">Upload</li>
         <li *ngIf="!logged_In">
             <button class="btn bg-app-primary" [routerLink]="['/account/join']">Join</button>
         </li>

@@ -1,5 +1,6 @@
 import { UtilService } from 'src/app/Services/util.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alt-navbar',
@@ -12,7 +13,8 @@ export class AltNavbarComponent implements OnInit {
   notification_count = 0;
   user:any;
   constructor(
-    private util: UtilService
+    private util: UtilService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,5 +39,13 @@ export class AltNavbarComponent implements OnInit {
   }
   search(){
     this.util.searchRoute('search',this.search_term.trim())
+  }
+  upload(){
+    this.router.navigate(['/user'], {
+      queryParams: {
+        event : 'upload'
+      },
+      queryParamsHandling: 'merge',
+    });
   }
 }

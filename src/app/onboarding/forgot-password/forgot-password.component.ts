@@ -31,11 +31,13 @@ export class ForgotPasswordComponent implements OnInit {
       this.util.succesSnackbar('Confirmation code confirmed')
       this.router.navigate(['/account/reset-password'], {
         queryParams: {
-          auth_id: res.data.phone,
-          auth_code: res.data.code
+          auth_id: this.data.phone,
+          auth_code: this.data.code
         },
       });
     },err =>(
+      console.log(err),
+      
       this.confirm_loader = false
     ))
   }

@@ -1,1 +1,6 @@
-<p>my-collections works!</p>
+<div class="py-5 text-center mb-5" *ngIf="collections.length == 0 && !loader">
+    <h6 class="text-app-black f-20 fw-800">
+      It appears You don't have any Collections yet 
+    </h6>
+</div>
+<app-shimmer *ngIf="loader"></app-shimmer>

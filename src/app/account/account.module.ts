@@ -14,6 +14,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { MyCollectionsComponent } from './my-collections/my-collections.component';
 import { PhotosComponent } from './photos/photos.component';
 import { WalletsComponent } from './wallets/wallets.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WalletsComponent } from './wallets/wallets.component';
     PhotosComponent,
     EditPhotoComponent,
     MyAccountComponent,
-    ContributionsComponent
+    ContributionsComponent,
+    UploadImageComponent
   ],
   imports: [
     CommonModule,

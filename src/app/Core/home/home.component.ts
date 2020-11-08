@@ -1,9 +1,6 @@
-import { ShareComponent } from './../../helper/share/share.component';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UtilService } from 'src/app/Services/util.service';
-import { AddCollectionComponent } from './../../helper/add-collection/add-collection.component';
-import { ImagePreviewDioalgComponent } from './../../helper/image-preview-dioalg/image-preview-dioalg.component';
 import { ApiService } from './../../Services/api.service';
 declare const window: any;
 
@@ -15,7 +12,6 @@ declare const window: any;
 export class HomeComponent implements OnInit {
   active_tab = "Home";
   search_term = ""
-  notification = false;
   show_search = true;
   initialLoader = true;
   shimmer = false;
@@ -40,9 +36,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.publicImages();
-    setTimeout(() => {
-      this.notification = true;
-    }, 5000);
   }
   //toggling baner search area on window scroll
   @HostListener("window:scroll", [])

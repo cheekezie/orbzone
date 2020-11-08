@@ -23,8 +23,6 @@ export class ImagePreviewDioalgComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.data);
-    
     this.params = this.data.tags
     this.relatedImages();
   }

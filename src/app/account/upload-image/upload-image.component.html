@@ -1,0 +1,127 @@
+<app-alt-navbar></app-alt-navbar><div class="banner row mx-0">
+
+<div class="intro w-100 flex_x_between">
+    <h6 class="font-weight-bold mb-0 f-24 text-app-altBlack">
+        Publish to Orbzone
+    </h6>
+    <div class="flex_center">
+        <button class="btn border-black radius_3 text-app-black mr-3"
+            (click)="cancel()">Cancel
+        </button>
+        <button class="btn bg-app-black radius_3 text-white"
+            [disabled]="loader" (click)="publish()">Publish Image
+            <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="loader"></i>
+        </button>
+    </div>
+</div>
+<div class="content">
+    <div class="main">
+        <div class="dropzone radius_3 flex_y_center mb-4">
+            <img src="../../../assets/img/2x 1.svg" alt="">
+            <p class="font-weight-bold f-14">
+                Drag and drop an image/video or 
+                <span class="text-app-primary cursor" (click)="uploadFile.click()">Browse</span> 
+                to choose a file
+            </p>
+            <span class="text-app-green text-center f-12">{{image_name}}</span>
+            <input type="file" style="display: none;" #uploadFile
+            accept=".jpg, .jpeg, .png, .mp4, .gif" (change)="onUploadProfile($event)"/>
+        </div>
+        <hr>
+        <div class="flex_x_between">
+            <span class="text-app-grey">Read Orbzone Terms</span>
+            <span class="text-app-grey">Questions?</span>
+        </div>
+
+        <div class="form-area border-grey radius_5">
+            <form >
+                <div class="row">
+                    <div class="group col-md-12 text-left">
+                        <label for="lname" class="fw-600 text-app-black">Image Title</label>
+                        <input type="text" class="form-control" id="lname" name="ttl" [(ngModel)]="imageForm.title">
+                    </div>
+                    <div class="group row mx-0">
+                        <div class="col-4" *ngFor="let item of types">
+                            <button class="btn" [ngClass]="{'bg-black': imageForm.type == item, 
+                            'text-app-grey': imageForm.type !== item}"
+                            (click)="imageForm.type = item">{{item | titlecase}}</button>
+                        </div>
+                    </div>
+    
+                    <div class="group col-12 text-left">
+                        <label for="dob" class="fw-600 text-app-black">Description</label>
+                        <input type="text" class="form-control" id="dob" name="desc" [(ngModel)]="imageForm.description">
+                    </div>
+                    <div class="group col-12 text-left">
+                        <label for="gender" class="fw-600 text-app-black">Category</label>
+                        <select class="form-control" id="account" name="cat" [(ngModel)]="imageForm.category">
+                            <option value="happy">Happy</option>
+                            <option value="wildlife">Wild Life</option>
+                        </select>
+                    </div>
+                    <div class="group col-12 text-left">
+                        <label for="gender" class="fw-600 text-app-black">Attributes</label> <br>
+                        <small class="text-app-grey">
+                            Attributes are the technical properties of your image like dimensions etc.
+                        </small>
+                        <div class="row mb-3 mt-2 position-relative" *ngFor="let item of imageForm.attributes; let i = index">
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="attr + i" placeholder="Name" [(ngModel)]="item.name">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" name="val + i" placeholder="Value" [(ngModel)]="item.value">
+                            </div>
+                            <fas class="fas fa-minus-circle text-danger remove cursor" 
+                            (click)="removeAttr(i)" *ngIf="i != 0"></fas>
+                        </div>
+                        <button class="w-100 btn bg-app-success radius_3 text-white" (click)="addAttribute()">Add Attributes</button>
+                       
+                    </div>
+                    <div class="group col-12 text-left">
+                        <label for="gender" class="fw-600 text-app-black">Tags</label> 
+                        <div class="mb-2">
+                            <small class="text-app-grey">
+                                Tags are keywords that relate to your image that would enable people discover it
+                            </small>
+                        </div>
+                        <div class="position-relative" *ngFor="let item of imageForm.tags; let i = index" >
+                            <input type="text" class="form-control mb-3" id="email" 
+                            name="tag + i" [(ngModel)]="item.name" placeholder="tags">
+                            <fas class="fas fa-minus-circle text-danger remove cursor" 
+                            (click)="removeTag(i)" *ngIf="i != 0"></fas>
+                        </div>
+                        <button class="w-100 btn bg-app-success radius_3 text-white" (click)="addTag()">Add Tags</button>
+                       
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="wrapper">
+            <div class="image_item img_overly" *ngFor="let item of contributions">
+                <div class="top">
+                    <button class="bg_grey btn" [routerLink]="[ '/user/photo/edit', item?.imid ]">Edit</button>
+                    <button class="btn bg_grey icon_btn" (click)="delete(item?.imid)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button> 
+                </div>
+                <img [src]="item?.preview" alt="Orbzone stock image collections"
+                onerror="this.src='../../../assets/img/unavailable-image.jpg'">
+                <div class="bottom">
+                    <button class="btn bg_grey icon_btn">
+                        <mat-icon>save_alt</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="py-5 text-center w-100" *ngIf="contributions.length == 0 && !data_loader">
+                <h6 class="text-app-black f-14 font-weight-bold">
+                  It appears You don't have any contributions yet 
+                </h6>
+            </div>
+            <div class="py-5 text-center w-100" *ngIf="data_loader">
+                <i class="fas fa-circle-notch text-app-primary fa-spin f-32"></i>
+            </div>
+        </div>
+
+    </div>
+</div>

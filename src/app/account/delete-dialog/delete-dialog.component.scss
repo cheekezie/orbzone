@@ -1,0 +1,21 @@
+.mat-dialog-container{
+    padding: 0 !important;
+    overflow: auto !important;
+}
+mat-dialog-content{
+    padding: 0;
+    margin-top: -2rem;
+    max-height: 90vh;
+}
+button{
+    padding: .375rem 3rem;
+    &:nth-of-type(even){
+        padding: .375rem 4rem;
+    }
+}
+.content{
+    padding: 3rem 5% 1rem 5%;
+}
+.top{
+    padding: 1.8rem 2rem 1.4rem 2rem;
+}

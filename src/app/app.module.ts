@@ -14,6 +14,12 @@ import { SearchResultComponent } from './Core/search-result/search-result.compon
 import { HelperModule } from './helper/helper.module';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
 import { MaterialModule } from './material/material.module';
+import { ApiService } from './Services/api.service';
+import { UtilService } from './Services/util.service';
+
+export function tokenGetter() {
+  return '';
+}
 
 @NgModule({
   declarations: [
@@ -34,12 +40,14 @@ import { MaterialModule } from './material/material.module';
     ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
-        
+        tokenGetter: tokenGetter,
       }
     })
   ],
   providers: [
     CookieService,
+    UtilService,
+    ApiService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpinterceptorService,

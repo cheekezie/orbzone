@@ -1,6 +1,6 @@
 import { UtilService } from 'src/app/Services/util.service';
 import { ApiService } from './../../Services/api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit {
     private router: Router,
     private api: ApiService,
     private util: UtilService,
+    private Activatedroute: ActivatedRoute
   ) {
     this.passwordForm = this.formbuilder.group({
       new_password : ['', [Validators.required, Validators.minLength(6)]],
@@ -28,6 +29,10 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+    let code = this.Activatedroute.snapshot.queryParamMap.get('auth_code');
+    let phone = this.Activatedroute.snapshot.queryParamMap.get('auth_id');
+    this.passwordForm.get('code').setValue(code)
+    this.passwordForm.get('phone').setValue(phone)
   }
   regValid(control){
     return this.passwordForm.controls[control].touched &&

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { DeleteDialogComponent } from '../account/delete-dialog/delete-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -171,4 +172,5 @@ export class UtilService {
     dialogConfig.width = '40rem';
     this.matDialog.open(ShareComponent, dialogConfig);  
   }
+
 }

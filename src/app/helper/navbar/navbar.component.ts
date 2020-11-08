@@ -62,5 +62,13 @@ export class NavbarComponent implements OnInit {
   search(){
     this.util.searchRoute('search',this.search_term.trim())
   }
+  upload(){
+    this.router.navigate(['/user'], {
+      queryParams: {
+        event : 'upload'
+      },
+      queryParamsHandling: 'merge',
+    });
+  }
 }
 

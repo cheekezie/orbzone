@@ -1,1 +1,21 @@
-<p>delete-dialog works!</p>
+<mat-dialog-content>
+    <div class="top bg-app-altBlack text-white text-center">
+        Remove {{data?.title}}
+    </div>
+    <div class="content text-center">
+        <p class="text-app-grey mb-4">
+            Are you sure you want to remove this {{data?.target}}. <br>
+            Once deleted this cannot be undone, proceed?
+        </p>
+        <div class="d-flex justify-content-center">
+            <button class="btn border-black radius_3 text-app-black mr-3"
+                (click)="cancel()">Cancel
+            </button>
+            <button class="btn bg-app-black radius_3 text-white"
+                [disabled]="loader" (click)="confirm()">Yes
+                <i class="fas fa-circle-notch fa-spin ml-3" *ngIf="loader"></i>
+            </button>
+        </div>
+    </div>
+    
+</mat-dialog-content>

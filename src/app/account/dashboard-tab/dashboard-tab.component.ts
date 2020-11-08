@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiService } from './../../Services/api.service';
 import { UtilService } from 'src/app/Services/util.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-tab',
@@ -10,6 +11,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class DashboardTabComponent implements OnInit {
   @ViewChild('walletTab', { static: true }) walletTab: ElementRef<HTMLElement>;
+  @ViewChild('uploadBtn', { static: true }) uploadBtn: ElementRef<HTMLElement>;
   isLinear = true;
   user:any;
   filter = {
@@ -26,10 +28,17 @@ export class DashboardTabComponent implements OnInit {
   constructor(
     private util: UtilService,
     private api: ApiService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private Activatedroute: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    let event = this.Activatedroute.snapshot.queryParamMap.get('event');
+    if(event && event == 'upload'){
+      this.upload_dialog = true
+    }
+    
     this.user = this.util.getUserObject();
     this.util.prifleChange.subscribe(data=>{
       if(data){
@@ -64,6 +73,9 @@ export class DashboardTabComponent implements OnInit {
         horizontalPosition: 'right',
         panelClass: ['black-snackbar'],
      });
+    }
+    else{
+      this.router.navigate(['/user/photo/upload'])
     }
   }
 }

@@ -28,7 +28,7 @@
 </div>
 <div class="masonry" *ngIf="!shimmer">
     <div class="grid" *ngFor="let item of gallery">
-      <img [src]="item?.preview" class="grid_image" onload="this.src='../../../assets/img/unavailable-image.jpg'" 
+      <img [src]="item?.preview" class="grid_image" 
       onerror="this.src='../../../assets/img/unavailable-image.jpg'" alt="Orbzone gallery">
       <div class="grid__body cursor" (click)="open(item)">
       </div>
@@ -47,30 +47,5 @@
     
   </div>
 
-  <div class="notification" *ngIf="notification">
-      <div class="panel">
-        <div class="my-3 text-right">
-            <mat-icon class="cursor" (click)="notification = false">close</mat-icon>
-        </div>
-        <div class="content text-center">
-            <h6 class="font-weight-bold f-24 text-app-black">
-                Welcome to Orbzone
-            </h6>
-            <p class="text-app-black f-14">
-                Orbzone is a platform that provides a networked environment
-                for African photographers to share their work with the world.
-            </p>
-            <p class="text-app-black f-14">
-                We enable creative content creators to gain access to better
-                and more relatable content that will help them tell the African
-                story even better as a business or brand.
-            </p>
-            <div class="button_group text-center font-weight-bold">
-                <a class="bg-app-black text-white btn cursor f-16">For Contributor’s</a>
-                <a class="ml-3 btn_border text-app-black btn cursor f-16">I want Premium Images</a>
-            </div>
-        </div>
-    </div>
-  </div>
   <app-shimmer *ngIf="shimmer"></app-shimmer>
   <app-footer></app-footer>

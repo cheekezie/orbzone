@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-collections.component.scss']
 })
 export class MyCollectionsComponent implements OnInit {
-
+  collections = [];
+  loader = false;
   constructor() { }
 
   ngOnInit(): void {

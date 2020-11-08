@@ -1,0 +1,71 @@
+@import '../contributions/contributions.component.scss';
+.wrapper{
+    padding: 1rem 0 !important;
+    width: 100%;
+}
+.bottom{
+    justify-content: flex-end !important;
+}
+.remove{
+    position: absolute;
+    right: .3rem;
+    bottom: -.7rem;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.content{
+    // display: flex;
+    // justify-content: space-between;
+    width: 100%;
+    position: relative;
+    padding: 0 5%;
+    margin-bottom: 3rem;
+    .main{
+        width: 64%;
+        hr{
+            margin-top: 1px solid #BDBDBD;
+        }
+    }
+    .form-area{
+        width: 30%;
+        position: absolute;
+        right: 5%;
+        top: 0;
+        padding: 1rem .8rem;
+    }
+}
+.dropzone{
+    width: 100%;
+    min-height: 195px;
+    padding: 2rem 4rem;
+    background: #F5F5F5;
+    border: 1px dashed #828282;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+.form-control{
+    font-size: 14px;
+    color: #BDBDBD !important;
+    padding: 1.3rem .5rem;
+    border: 1px solid #000;
+    &::placeholder{
+    color: #BDBDBD;
+    }
+}
+
+@media (max-width: 768px) {
+    .content{
+        .main{
+            width: 100%;
+        }
+        .form-area{
+            position: relative;
+            width: 100%;
+            right: initial;
+            margin: 1rem 0;
+        }
+    }
+}

@@ -1,18 +1,17 @@
 <div class="wrapper">
     <div class="image_item img_overly" *ngFor="let item of contributions">
         <div class="top">
-            <button class="bg_grey btn">Edit</button>
-            <button class="btn bg_grey icon_btn">
+            <button class="bg_grey btn" [routerLink]="[ '/user/photo/edit', item?.imid ]">Edit</button>
+            <button class="btn bg_grey icon_btn" (click)="delete(item?.imid)">
                 <mat-icon>delete_forever</mat-icon>
             </button> 
         </div>
-        <img src="../../../assets/img/gallery-1.png" alt="Orbzone stock image collections"
-        onload="this.src='../../../assets/img/unavailable-image.jpg'" 
+        <img [src]="item?.preview" alt="Orbzone stock image collections"
         onerror="this.src='../../../assets/img/unavailable-image.jpg'">
         <div class="bottom">
             <span class="btn  text-white"
                 [ngClass]="{'bg-app-success': item?.status == 'published',
-                'bg-app-primary': item?.status == 'un-published'}">
+                'bg-app-primary': item?.status == 'pending'}">
                 {{item?.status}}
             </span>
             <button class="btn bg_grey icon_btn">

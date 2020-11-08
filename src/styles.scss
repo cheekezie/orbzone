@@ -23,6 +23,7 @@ $colorScheme : (
     alt: #fd976629,
     grey_color: #B2B2B2,
     text-black: #000000,
+    light-grey: #E0E0E0,
     dark: #6D6D6D,
 );
 
@@ -50,16 +51,20 @@ $colorScheme : (
   background: color(text-black) !important;
   color: #fff;
 }
+.bg-black{
+  background: color(text-black) !important;
+  color: #fff !important;
+}
 .bg-app-altBlack{
     background: color(altBlack) !important;
 }
-.bg-app-green{
-  background: color(mag-green) !important;
-  color: #fff;
-}
+
 .bg-app-danger{
   background: color(danger) !important;
   color: #fff;
+}
+.border-grey{
+  border: 1px solid color(light-grey);
 }
 .text-app-danger{
   color: color(danger) !important;
@@ -68,7 +73,7 @@ $colorScheme : (
     color: color(primary) !important;
 }
 .text-app-green{
-  color: color(mag-green) !important;
+  color: color(success) !important;
 }
 .text-app-light{
     color: #fff !important;
@@ -198,6 +203,10 @@ select.form-control{
   text-decoration: none;
 }
 
+.intro{
+  margin: 8rem 0 1.5rem 0;
+  padding: 0 5%;
+}
 //MASONRY BRICK STYLE GALLERY
 .intro_text{
   padding: 0 5%;
@@ -441,9 +450,17 @@ select.form-control{
       text-align: center;
     }
   }
-
+  .radius_3{
+    border-radius: 3px;
+  }
+  .radius_5{
+    border-radius: 5px;
+  }
   button.disabled{
     opacity: .5;
+  }
+  .border-black{
+    border: 1px solid color(text-black) !important;
   }
   //Dialog box Image container
   .image_data{

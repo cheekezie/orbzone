@@ -14,11 +14,13 @@
     }
     button{
         color: #828282;
-        padding: .3rem 1.2rem;
-        font-size: 14px;
+        padding: .2rem .8rem;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
     }
     .icon_btn{
-        padding: .3rem .5rem;
+        padding: .2rem .4rem !important;
     }
     span.btn{
         border-radius: 6px;
